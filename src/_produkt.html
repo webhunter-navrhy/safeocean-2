@@ -1,0 +1,73 @@
+{% extends "_base.html" %}
+{% set kat = (data.kategorie|selectattr('slug', 'equalto', p.kat)|first) %}
+{% set titulek = p.nazev ~ (" (" ~ p.latin ~ ")" if p.latin else "") ~ " | Obchod Safe Ocean" %}
+{% set popis = p.popis %}
+{% set cesta = "obchod/" ~ p.slug ~ "/" %}
+{% block telo %}stranka obchod produkt{% endblock %}
+{% block head %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":{{ p.nazev|tojson }},"description":{{ p.popis|tojson }},"image":{{ (site.url ~ img_url(p.foto[0], 1280)[base|length:])|tojson }},"brand":{"@type":"Brand","name":"Safe Ocean"}{% if p.cena %},"offers":{"@type":"Offer","priceCurrency":"CZK","price":"{{ p.cena }}","availability":"https://schema.org/InStock","seller":{"@type":"Organization","name":{{ site.provozovatel|tojson }}}}{% endif %}}</script>
+{% endblock %}
+{% block obsah %}
+<nav class="drobky" aria-label="Drobečková navigace"><a href="{{ url('') }}">Úvod</a> / <a href="{{ url('obchod') }}">Obchod</a> / <a href="{{ url('obchod') }}#{{ p.kat }}" data-kat-odkaz="{{ p.kat }}">{{ kat.nazev }}</a> / <span>{{ p.nazev }}</span></nav>
+<article class="pd">
+  <div class="pd__galerie" data-galerie>
+    <figure class="pd__hlavni">{{ img(p.foto[0], alt=p.nazev, sizes="(min-width: 900px) 55vw, 100vw", eager=True) }}</figure>
+    {% if p.foto|length > 1 %}
+    <div class="pd__nahledy">
+      {% for f in p.foto %}
+      <button type="button" data-foto="{{ img_url(f, 1280) }}" aria-label="Fotka {{ loop.index }}"{% if loop.first %} aria-current="true"{% endif %}>{{ img(f, alt="", sizes="120px", eager=False) }}</button>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="pd__info">
+    <p class="pd__kat">{{ kat.nazev }}{% if p.ziva %} · <span class="stitek">živé</span>{% endif %}</p>
+    <h1>{{ p.nazev|cz }}</h1>
+    {% if p.latin or p.podtitul %}<p class="pd__latin">{{ p.latin or p.podtitul }}</p>{% endif %}
+    <p class="pd__cena" data-cena-zobraz>{% if p.cena %}{% if p.od %}od {% endif %}{{ (p.varianty[0][1] if p.varianty else p.cena)|kc }}{% if p.jednotka %} <small>{{ p.jednotka }}</small>{% endif %}{% else %}cena podle návrhu{% endif %}</p>
+    <p class="pd__ukazka">Ukázková položka – cenu, dostupnost a&nbsp;popis doplníme podle vašeho ceníku.</p>
+    <p class="pd__popis">{{ p.popis|cz }}</p>
+
+    {% if p.typ == 'kosik' %}
+    <form class="pd__nakup" data-nakup>
+      {% if p.varianty %}
+      <fieldset class="prepinac prepinac--svetly"><legend>Balení</legend>
+        {% for v in p.varianty %}<label><input type="radio" name="varianta" value="{{ v[0] }}" data-cena="{{ v[1] }}"{% if loop.first %} checked{% endif %}> {{ v[0] }} · {{ v[1]|kc }}</label>{% endfor %}
+      </fieldset>
+      {% endif %}
+      <div class="pd__radek">
+        <label class="pocet"><span class="sr">Počet</span>
+          <button type="button" data-minus aria-label="Méně">−</button><input type="number" name="pocet" value="1" min="1" max="20" inputmode="numeric"><button type="button" data-plus aria-label="Více">+</button>
+        </label>
+        <button type="submit" class="tl tl--plne" data-pridat data-slug="{{ p.slug }}" data-nazev="{{ p.nazev }}" data-cena="{{ p.varianty[0][1] if p.varianty else p.cena }}" data-varianta="{{ p.varianty[0][0] if p.varianty else '' }}" data-ziva="{{ 1 if p.ziva else 0 }}" data-foto="{{ img_url(p.foto[0], 640) }}">Přidat do košíku</button>
+      </div>
+      <p class="pd__potvrzeni" role="status" aria-live="polite"></p>
+    </form>
+    {% else %}
+    <div class="pd__nakup">
+      <a class="tl tl--plne" href="{{ url('kontakt') }}?tema={{ p.nazev|urlencode }}">Poptat {{ p.nazev|lower }}</a>
+      {% if p.kat == 'akvaria' %}<a class="tl" href="{{ url('') }}#na-miru">Vyzkoušet rozměr v&nbsp;konfigurátoru</a>{% endif %}
+    </div>
+    {% endif %}
+
+    {% if p.ziva %}
+    <div class="pd__ziva">
+      <h2 class="mini">Jak předáváme živé</h2>
+      <p>Osobně v&nbsp;Praze 3, nebo je přivezeme v&nbsp;termoboxu po Praze. Poštou neposíláme.</p>
+    </div>
+    {% endif %}
+
+    <dl class="pd__parametry">
+      {% for k, v in p.parametry %}<div><dt>{{ k }}</dt><dd>{{ v|cz }}</dd></div>{% endfor %}
+    </dl>
+  </div>
+</article>
+{% set podobne = data.produkty|selectattr('kat', 'equalto', p.kat)|rejectattr('slug', 'equalto', p.slug)|list %}
+{% if podobne|length < 3 %}{% set podobne = podobne + (data.produkty|rejectattr('kat', 'equalto', p.kat)|rejectattr('typ', 'equalto', 'poptavka')|list)[:4 - podobne|length] %}{% endif %}
+<section class="podobne">
+  <h2>Mohlo by se hodit</h2>
+  <div class="mrizka mrizka--4">
+    {% for p in podobne[:4] %}{% include "_produkt_karta.html" %}{% endfor %}
+  </div>
+</section>
+{% endblock %}

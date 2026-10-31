@@ -1,0 +1,21 @@
+{% extends "_base.html" %}
+{% set titulek = "Kontakt – Safe Ocean, akvária na míru Praha" %}
+{% set popis = "Napište nebo zavolejte Safe Ocean: akvárium na míru, servis nebo obchod. Vranovská 1287/14, Praha 3." %}
+{% set cesta = "kontakt/" %}
+{% block telo %}stranka kontaktni{% endblock %}
+{% block obsah %}
+<section class="kontakt kontakt--stranka" id="kontakt" data-noc>
+  <div class="kontakt__text">
+    <h1>Kontakt</h1>
+    <p>Stačí pár vět a&nbsp;fotka místa. Ozveme se, domluvíme zaměření a&nbsp;pošleme první návrh.</p>
+    <ul class="kontakt__udaje">
+      <li><span>Telefon</span><a href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a></li>
+      <li><span>E-mail</span><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a></li>
+      <li><span>Adresa</span>{{ site.kontakt.adresa.ulice }}, {{ site.kontakt.adresa.psc }} {{ site.kontakt.adresa.mesto }}</li>
+      <li><span>Provozovatel</span>{{ site.provozovatel }}, IČO {{ site.ico }}</li>
+    </ul>
+    <figure class="kontakt__foto">{{ img("dlouhe-morske.jpg", alt="Dlouhé mořské akvárium s útesem v tmavé místnosti", sizes="(min-width: 900px) 40vw, 100vw", eager=False) }}</figure>
+  </div>
+  {% include "_formular.html" %}
+</section>
+{% endblock %}

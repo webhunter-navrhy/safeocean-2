@@ -1,0 +1,19 @@
+<form class="formular" id="poptavka" method="post" data-endpoint="{{ site.formular.endpoint }}" data-demo="{{ 1 if site.formular.demo or not site.formular.endpoint else 0 }}">
+  <div class="formular__radek">
+    <label>Jméno <input name="jmeno" autocomplete="name" required></label>
+    <label>Telefon <input name="telefon" type="tel" autocomplete="tel"></label>
+  </div>
+  <label>E-mail <input name="email" type="email" autocomplete="email" required></label>
+  <fieldset class="volby">
+    <legend>Co řešíte</legend>
+    <label><input type="radio" name="tema" value="Akvárium na míru" checked> Akvárium na míru</label>
+    <label><input type="radio" name="tema" value="Servis"> Servis</label>
+    <label><input type="radio" name="tema" value="Obchod"> Obchod</label>
+  </fieldset>
+  <label>Zpráva <textarea name="zprava" id="poptavka-zprava" rows="5" required placeholder="Kam akvárium chcete, jak velké a jestli mořské, nebo sladkovodní."></textarea></label>
+  <div class="past" aria-hidden="true"><label>Nevyplňovat <input name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+  <input type="hidden" name="_subject" value="{{ site.formular.predmet }}">
+  <button type="submit" class="tl tl--plne">Odeslat poptávku</button>
+  <p class="formular__pozn">Ozveme se vám e-mailem nebo telefonem. Údaje použijeme jen k vyřízení poptávky.</p>
+  <p class="formular-stav" role="status" aria-live="polite"></p>
+</form>

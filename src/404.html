@@ -1,0 +1,11 @@
+{% extends "_base.html" %}
+{% set titulek = "Stránka nenalezena | Safe Ocean" %}
+{% set noindex = True %}
+{% block telo %}stranka{% endblock %}
+{% block obsah %}
+<section class="podhlava podhlava--404">
+  <h1>Tady je jen voda</h1>
+  <p>Stránka, kterou hledáte, tu není. Zkuste úvod, realizace nebo obchod.</p>
+  <p><a class="tl tl--plne" href="{{ url('') }}">Na úvod</a> <a class="tl" href="{{ url('obchod') }}">Obchod</a></p>
+</section>
+{% endblock %}

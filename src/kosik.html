@@ -1,0 +1,57 @@
+{% extends "_base.html" %}
+{% set titulek = "Košík | Safe Ocean" %}
+{% set cesta = "kosik/" %}
+{% set noindex = True %}
+{% block telo %}stranka obchod stranka-kosik{% endblock %}
+{% block obsah %}
+<section class="podhlava podhlava--kosik">
+  <h1>Košík</h1>
+  <ol class="kroky-nakupu" aria-label="Kroky objednávky"><li aria-current="step">Košík</li><li>Doprava a&nbsp;platba</li><li>Hotovo</li></ol>
+</section>
+<div class="kosik" data-kosik data-dopravy='{"osobne":{"nazev":"Osobní odběr – Praha 3","cena":0,"ziva":true},"rozvoz":{"nazev":"Rozvoz po Praze v termoboxu","cena":290,"ziva":true},"prepravce":{"nazev":"Přepravní služba po ČR","cena":129,"ziva":false}}'>
+  <div class="kosik__polozky">
+    <ul data-kosik-seznam></ul>
+    <div class="kosik__prazdny" data-kosik-prazdny hidden>
+      <p>Košík je zatím prázdný.</p>
+      <a class="tl tl--plne" href="{{ url('obchod') }}">Do obchodu</a>
+    </div>
+    <p class="kosik__ziva-pozn" data-ziva-pozn hidden>V&nbsp;košíku jsou živí živočichové – nabízíme jen osobní odběr nebo rozvoz po Praze.</p>
+  </div>
+
+  <form class="pokladna" data-pokladna novalidate>
+    <h2>Doprava</h2>
+    <fieldset class="volby-blok" data-doprava>
+      <label><input type="radio" name="doprava" value="osobne" checked><span><b>Osobní odběr – Praha 3</b><small>Vranovská 1287/14, po domluvě</small></span><em>zdarma</em></label>
+      <label><input type="radio" name="doprava" value="rozvoz"><span><b>Rozvoz po Praze</b><small>v termoboxu, termín domluvíme</small></span><em>290&nbsp;Kč</em></label>
+      <label data-jen-neziva><input type="radio" name="doprava" value="prepravce"><span><b>Přepravní služba po ČR</b><small>jen technika, ne živí</small></span><em>129&nbsp;Kč</em></label>
+    </fieldset>
+    <h2>Platba</h2>
+    <fieldset class="volby-blok">
+      <label><input type="radio" name="platba" value="qr" checked><span><b>Převodem přes QR kód</b><small>QR pošleme hned po objednávce</small></span><em>zdarma</em></label>
+      <label><input type="radio" name="platba" value="karta"><span><b>Kartou online</b><small>platební brána – doplníme</small></span><em>zdarma</em></label>
+      <label><input type="radio" name="platba" value="hotove"><span><b>Při předání</b><small>hotově nebo kartou</small></span><em>zdarma</em></label>
+    </fieldset>
+    <h2>Kontakt</h2>
+    <div class="formular__radek">
+      <label>Jméno a&nbsp;příjmení <input name="jmeno" autocomplete="name" required></label>
+      <label>Telefon <input name="telefon" type="tel" autocomplete="tel" required></label>
+    </div>
+    <label>E-mail <input name="email" type="email" autocomplete="email" required></label>
+    <label>Poznámka <textarea name="pozn" rows="3" placeholder="Např. kdy se vám hodí předání."></textarea></label>
+    <div class="souhrn">
+      <p><span>Zboží</span><b data-s="zbozi">0&nbsp;Kč</b></p>
+      <p><span>Doprava</span><b data-s="doprava">zdarma</b></p>
+      <p class="souhrn__celkem"><span>Celkem s&nbsp;DPH</span><b data-s="celkem">0&nbsp;Kč</b></p>
+    </div>
+    <button type="submit" class="tl tl--plne tl--siroke">Objednat s&nbsp;povinností platby</button>
+    <p class="formular__pozn">Ukázka objednávky – v&nbsp;návrhu se nic neodesílá ani neplatí.</p>
+    <p class="formular-stav" role="status" aria-live="polite"></p>
+  </form>
+
+  <div class="hotovo" data-hotovo hidden tabindex="-1">
+    <h2>Děkujeme, objednávka je přijatá</h2>
+    <p>Takhle bude vypadat potvrzení. Na e-mail přijde shrnutí, QR kód k&nbsp;platbě a&nbsp;u&nbsp;živých živočichů návrh termínu předání.</p>
+    <a class="tl" href="{{ url('obchod') }}">Zpět do obchodu</a>
+  </div>
+</div>
+{% endblock %}

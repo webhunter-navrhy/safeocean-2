@@ -1,0 +1,456 @@
+[
+  {
+    "slug": "morske-akvarium-na-klic",
+    "nazev": "Mořské akvárium na klíč",
+    "podtitul": "400 litrů, útes s korály",
+    "kat": "akvaria",
+    "cena": 189000,
+    "od": true,
+    "typ": "poptavka",
+    "ziva": false,
+    "foto": [
+      "p/set-morsky.jpg",
+      "morske-detail.jpg",
+      "koraly-sirokce.jpg"
+    ],
+    "popis": "Nádrž, skříň s technikou, osvětlení, filtrace a osazení korály a rybami. Realizace na klíč včetně dlouhodobého servisu.",
+    "parametry": [
+      [
+        "Objem",
+        "cca 400 l"
+      ],
+      [
+        "Rozměr",
+        "160 × 60 × 60 cm (lze upravit)"
+      ],
+      [
+        "Sklo",
+        "extra čiré"
+      ],
+      [
+        "V ceně",
+        "nádrž, skříň, technika, instalace, rozjezd"
+      ]
+    ]
+  },
+  {
+    "slug": "rostlinne-akvarium-ve-stene",
+    "nazev": "Rostlinné akvárium ve stěně",
+    "podtitul": "sladkovodní, jako obraz",
+    "kat": "akvaria",
+    "cena": 79000,
+    "od": true,
+    "typ": "poptavka",
+    "ziva": false,
+    "foto": [
+      "p/set-sladkovodni.jpg",
+      "sladkovodni-detail.jpg",
+      "bila-stena.jpg"
+    ],
+    "popis": "Sladkovodní akvárium zapuštěné do stěny nebo obložení. Technika je schovaná za rámem, vepředu zůstává jen sklo, zeleň a ryby.",
+    "parametry": [
+      [
+        "Objem",
+        "cca 250 l"
+      ],
+      [
+        "Rozměr",
+        "200 × 50 × 45 cm (lze upravit)"
+      ],
+      [
+        "Osvětlení",
+        "LED pro rostliny"
+      ],
+      [
+        "V ceně",
+        "nádrž, rám, technika, rostliny, instalace"
+      ]
+    ]
+  },
+  {
+    "slug": "akvarium-na-miru",
+    "nazev": "Akvárium na míru",
+    "podtitul": "podle vašeho prostoru",
+    "kat": "akvaria",
+    "cena": 0,
+    "od": false,
+    "typ": "poptavka",
+    "ziva": false,
+    "foto": [
+      "p/na-miru.jpg",
+      "r/stena-1.jpg"
+    ],
+    "popis": "Rozměr, tvar i umístění navrhneme podle místa – do obývací stěny, mezi místnosti, do recepce. Spočítáme statiku a technické zázemí. V konfigurátoru si můžete vyzkoušet rozměr hned.",
+    "parametry": [
+      [
+        "Objem",
+        "od 200 l až po tisíce litrů"
+      ],
+      [
+        "Typ",
+        "mořské i sladkovodní"
+      ],
+      [
+        "Postup",
+        "návrh → výroba → instalace → servis"
+      ]
+    ]
+  },
+  {
+    "slug": "bodlok-zluty",
+    "nazev": "Bodlok žlutý",
+    "latin": "Zebrasoma flavescens",
+    "kat": "morsti",
+    "cena": 2490,
+    "typ": "kosik",
+    "ziva": true,
+    "foto": [
+      "p/bodlok-zluty.jpg",
+      "morske-detail.jpg"
+    ],
+    "popis": "Citrónově žlutá ryba, která v útesu svítí i při tlumeném světle. Spásá řasy a potřebuje prostor k plavání.",
+    "parametry": [
+      [
+        "Velikost",
+        "6–8 cm"
+      ],
+      [
+        "Nádrž",
+        "od 400 l"
+      ],
+      [
+        "Náročnost",
+        "střední"
+      ],
+      [
+        "Snášenlivost",
+        "s korály ano"
+      ]
+    ]
+  },
+  {
+    "slug": "bodlok-paletovy",
+    "nazev": "Bodlok paletový",
+    "latin": "Paracanthurus hepatus",
+    "kat": "morsti",
+    "cena": 2290,
+    "typ": "kosik",
+    "ziva": true,
+    "foto": [
+      "p/bodlok-kralovsky.jpg",
+      "ryby-bodlok.jpg"
+    ],
+    "popis": "Sytě modrý bodlok se žlutým ocasem. Aktivní plavec do větších nádrží, s korály se snese.",
+    "parametry": [
+      [
+        "Velikost",
+        "5–7 cm"
+      ],
+      [
+        "Nádrž",
+        "od 600 l"
+      ],
+      [
+        "Náročnost",
+        "střední"
+      ],
+      [
+        "Snášenlivost",
+        "s korály ano"
+      ]
+    ]
+  },
+  {
+    "slug": "klaun-ockaty-cerny",
+    "nazev": "Klaun očkatý, černá forma",
+    "latin": "Amphiprion ocellaris",
+    "kat": "morsti",
+    "cena": 890,
+    "typ": "kosik",
+    "ziva": true,
+    "varianty": [
+      [
+        "1 kus",
+        890
+      ],
+      [
+        "pár",
+        1690
+      ]
+    ],
+    "foto": [
+      "p/klaun.jpg",
+      "koraly-2.jpg"
+    ],
+    "popis": "Klidná ryba, vhodná i do menšího mořského akvária.",
+    "parametry": [
+      [
+        "Velikost",
+        "3–4 cm"
+      ],
+      [
+        "Nádrž",
+        "od 100 l"
+      ],
+      [
+        "Náročnost",
+        "nízká"
+      ]
+    ]
+  },
+  {
+    "slug": "sarcophyton",
+    "nazev": "Sarcophyton",
+    "latin": "měkký korál",
+    "kat": "koraly",
+    "cena": 990,
+    "typ": "kosik",
+    "ziva": true,
+    "foto": [
+      "p/kozatec.jpg",
+      "koraly-sirokce.jpg"
+    ],
+    "popis": "Měkký korál na kamínku. V proudu se pohybuje a postupně vytvoří velký „deštník“.",
+    "parametry": [
+      [
+        "Velikost odnože",
+        "4–6 cm"
+      ],
+      [
+        "Světlo",
+        "střední"
+      ],
+      [
+        "Proudění",
+        "střední"
+      ],
+      [
+        "Náročnost",
+        "nízká"
+      ]
+    ]
+  },
+  {
+    "slug": "zoanthus-kolonie",
+    "nazev": "Zoanthus, kolonie",
+    "latin": "Zoanthus sp.",
+    "kat": "koraly",
+    "cena": 590,
+    "typ": "kosik",
+    "ziva": true,
+    "foto": [
+      "p/odnoze.jpg",
+      "koraly-2.jpg"
+    ],
+    "popis": "Barevná kolonie polypů na kameni.",
+    "parametry": [
+      [
+        "Světlo",
+        "nízké až střední"
+      ],
+      [
+        "Náročnost",
+        "nízká"
+      ]
+    ]
+  },
+  {
+    "slug": "startovni-mix-koralu",
+    "nazev": "Startovní mix korálů",
+    "latin": "5 odnoží",
+    "kat": "koraly",
+    "cena": 2490,
+    "typ": "kosik",
+    "ziva": true,
+    "foto": [
+      "p/mix-koralu.jpg",
+      "koraly-sirokce.jpg"
+    ],
+    "popis": "Pět odnoží, které spolu dobře vycházejí – vybereme je podle světla a proudění ve vašem akváriu.",
+    "parametry": [
+      [
+        "Obsah",
+        "5 odnoží měkkých korálů"
+      ],
+      [
+        "Vhodné pro",
+        "nově rozjetá akvária"
+      ],
+      [
+        "Výběr",
+        "podle vašeho akvária"
+      ]
+    ]
+  },
+  {
+    "slug": "tercovec-cerveny",
+    "nazev": "Terčovec červený",
+    "latin": "Symphysodon sp.",
+    "kat": "sladkovodni",
+    "cena": 1490,
+    "typ": "kosik",
+    "ziva": true,
+    "foto": [
+      "p/tercovec.jpg",
+      "sladkovodni-detail.jpg"
+    ],
+    "popis": "Král sladkovodních akvárií. Klidná ryba do hustě osázené nádrže s měkkou teplou vodou.",
+    "parametry": [
+      [
+        "Velikost",
+        "8–10 cm"
+      ],
+      [
+        "Nádrž",
+        "od 300 l"
+      ],
+      [
+        "Teplota",
+        "28–30 °C"
+      ],
+      [
+        "Náročnost",
+        "vyšší"
+      ]
+    ]
+  },
+  {
+    "slug": "led-osvetleni-morske",
+    "nazev": "LED osvětlení pro mořské akvárium",
+    "latin": "s denním cyklem",
+    "kat": "technika",
+    "cena": 18900,
+    "typ": "kosik",
+    "ziva": false,
+    "foto": [
+      "p/led.jpg",
+      "servis-led.jpg"
+    ],
+    "popis": "Programovatelné LED pro korály s denním cyklem: ráno pozvolna rozsvítí, večer přejde do modré a v noci zhasne.",
+    "parametry": [
+      [
+        "Spektrum",
+        "plné, aktinická modrá"
+      ],
+      [
+        "Ovládání",
+        "aplikace, denní cyklus"
+      ],
+      [
+        "Pro nádrž",
+        "délka do 90 cm"
+      ]
+    ]
+  },
+  {
+    "slug": "skrin-s-technikou",
+    "nazev": "Skříň s technikou na míru",
+    "latin": "sump, čerpadla, rozvody",
+    "kat": "technika",
+    "cena": 34900,
+    "od": true,
+    "typ": "poptavka",
+    "ziva": false,
+    "foto": [
+      "p/skrin-technika.jpg",
+      "p/technicka-mistnost.jpg"
+    ],
+    "popis": "Skříň pod akvárium, ve které je schovaná celá technika: sump, čerpadla, dávkovače i elektřina. Odvětraná, tichá a přístupná pro servis.",
+    "parametry": [
+      [
+        "Provedení",
+        "dekor podle interiéru"
+      ],
+      [
+        "Obsah",
+        "sump, čerpadla, rozvody"
+      ],
+      [
+        "Alternativa",
+        "technika za stěnou nebo ve vedlejší místnosti"
+      ]
+    ]
+  },
+  {
+    "slug": "pravidelny-servis",
+    "nazev": "Pravidelný servis",
+    "latin": "měsíční paušál",
+    "kat": "servis",
+    "cena": 2900,
+    "jednotka": "/ měsíc",
+    "typ": "kosik",
+    "ziva": false,
+    "foto": [
+      "p/servis-mesicni.jpg",
+      "vasek-servis.jpg"
+    ],
+    "popis": "Pravidelná údržba, kontrola technologií, výměna vody i péče o živočichy. Diskrétně a v domluvený čas.",
+    "parametry": [
+      [
+        "Návštěvy",
+        "podle domluvy"
+      ],
+      [
+        "Obsahuje",
+        "výměna vody, čištění skel, měření, kontrola techniky"
+      ],
+      [
+        "Oblast",
+        "Praha a okolí"
+      ]
+    ]
+  },
+  {
+    "slug": "jednorazovy-servis",
+    "nazev": "Jednorázový servis a kontrola",
+    "latin": "jedna návštěva",
+    "kat": "servis",
+    "cena": 1900,
+    "typ": "kosik",
+    "ziva": false,
+    "foto": [
+      "p/servis-jednorazovy.jpg",
+      "servis-zebrik.jpg"
+    ],
+    "popis": "Když se něco nedaří, zakalí se voda nebo jen chcete, aby se na akvárium podíval někdo zkušený. Změříme, vyčistíme, poradíme.",
+    "parametry": [
+      [
+        "Délka",
+        "do 2 hodin"
+      ],
+      [
+        "Obsahuje",
+        "měření vody, čištění, kontrola techniky, doporučení"
+      ],
+      [
+        "Oblast",
+        "Praha a okolí"
+      ]
+    ]
+  },
+  {
+    "slug": "pece-behem-dovolene",
+    "nazev": "Péče během dovolené",
+    "latin": "za návštěvu",
+    "kat": "servis",
+    "cena": 690,
+    "jednotka": "/ návštěva",
+    "typ": "kosik",
+    "ziva": false,
+    "foto": [
+      "p/servis-predani.jpg",
+      "vasek-u-akvaria.jpg"
+    ],
+    "popis": "Odjíždíte? Přijedeme nakrmit, zkontrolovat techniku a doplnit vodu.",
+    "parametry": [
+      [
+        "Obsahuje",
+        "krmení, kontrola, doplnění vody, fotka"
+      ],
+      [
+        "Oblast",
+        "Praha a okolí"
+      ]
+    ]
+  }
+]

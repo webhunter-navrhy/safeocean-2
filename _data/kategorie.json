@@ -1,0 +1,8 @@
+[
+  {"slug": "akvaria", "nazev": "Akvária na klíč", "popis": "Kompletní nádrž včetně techniky, instalace a rozjezdu."},
+  {"slug": "morsti", "nazev": "Mořští živočichové", "popis": "Mořské ryby a bezobratlí do útesových akvárií."},
+  {"slug": "koraly", "nazev": "Korály", "popis": "Měkké korály, odnože a kolonie."},
+  {"slug": "sladkovodni", "nazev": "Sladkovodní", "popis": "Ryby a rostliny pro sladkovodní akvária."},
+  {"slug": "technika", "nazev": "Technika", "popis": "Osvětlení, skříně a technické zázemí."},
+  {"slug": "servis", "nazev": "Servis", "popis": "Pravidelná péče, kontrola a hlídání."}
+]

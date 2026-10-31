@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ titulek or site.nazev }}</title>
+<meta name="description" content="{{ popis or site.popis }}">
+{% if site.navrh or noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<meta name="theme-color" content="{{ site.theme_color }}">
+<link rel="canonical" href="{{ site.url }}{{ cesta or '' }}">
+<link rel="icon" href="{{ base }}img/logo-den.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:title" content="{{ titulek or site.nazev }}">
+<meta property="og:description" content="{{ popis or site.popis }}">
+<meta property="og:url" content="{{ site.url }}{{ cesta or '' }}">
+{% if og_url %}<meta property="og:image" content="{{ og_url }}">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">{% endif %}
+<link rel="preload" href="{{ base }}fonts/hostgrotesk-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ base }}fonts/hostgrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% block head %}{% endblock %}
+{% if jsonld %}<script type="application/ld+json">{{ jsonld|safe }}</script>{% endif %}
+</head>
+<body class="{% block telo %}{% endblock %}" data-base="{{ base }}">
+<a class="skip" href="#obsah">Přeskočit na obsah</a>
+<header class="hlavicka" data-hlavicka>
+  <div class="hlavicka__in">
+    <a href="{{ url('') }}" class="znacka" aria-label="Safe Ocean – úvod">
+      <span class="znacka__mark"><img src="{{ base }}img/logo-den.svg" alt="" width="26" height="40" class="znacka__den"><img src="{{ base }}img/logo-noc.svg" alt="" width="26" height="40" class="znacka__noc"></span>
+      <span class="znacka__text">Safe Ocean</span>
+    </a>
+    <nav class="menu" id="menu" aria-label="Hlavní">
+      {% for n in site.nav %}{% set h = n.href if n.href.startswith(('#', 'http', 'tel:', 'mailto:')) else url(n.href) %}{% if n.href.startswith('#') %}{% set h = url('') + n.href %}{% endif %}
+      <a href="{{ h }}"{% if cesta and n.href in cesta %} aria-current="page"{% endif %}>{{ n.text }}</a>{% endfor %}
+      <a class="menu__tel" href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a>
+    </nav>
+    <a class="kosik-odkaz" href="{{ url('kosik') }}" aria-label="Košík">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <span>Košík</span><b class="kosik-pocet" data-kosik-pocet hidden>0</b>
+    </a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span class="sr">Menu</span></button>
+  </div>
+</header>
+<main id="obsah">
+{% block obsah %}{% endblock %}
+</main>
+<footer class="paticka" data-noc>
+  <div class="paticka__in">
+    <div class="paticka__znacka">
+      <img src="{{ base }}img/logo-noc.svg" alt="Safe Ocean" width="52" height="80" loading="lazy">
+      <p class="paticka__claim">Akvária na míru.<br>Návrh, instalace a&nbsp;servis.</p>
+    </div>
+    <div>
+      <h2 class="mini">Kontakt</h2>
+      <p><a href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a><br>
+      <a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a><br>
+      {{ site.kontakt.adresa.ulice }}<br>{{ site.kontakt.adresa.psc }} {{ site.kontakt.adresa.mesto }}</p>
+    </div>
+    <div>
+      <h2 class="mini">Web</h2>
+      <p><a href="{{ url('realizace') }}">Realizace</a><br><a href="{{ url('') }}#na-miru">Akvárium na míru</a><br><a href="{{ url('obchod') }}">Obchod</a><br><a href="{{ url('o-nas') }}">O nás</a><br><a href="{{ url('kontakt') }}">Kontakt</a></p>
+    </div>
+    <div>
+      <h2 class="mini">Provozovatel</h2>
+      <p>{{ site.provozovatel }}<br>IČO {{ site.ico }}<br><a href="{{ url('obchod') }}#podminky">Obchodní podmínky</a></p>
+    </div>
+  </div>
+  <p class="paticka__spodek">© 2026 Safe Ocean · Návrh webu – ukázka, obsah obchodu je ilustrační</p>
+</footer>
+<script src="{{ asset('js/main.js') }}" defer></script>
+{% block skripty %}{% endblock %}
+</body>
+</html>

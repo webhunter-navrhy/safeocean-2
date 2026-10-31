@@ -1,0 +1,44 @@
+{% extends "_base.html" %}
+{% set titulek = r.nazev ~ " – " ~ r.typ ~ " akvárium " ~ r.litru ~ " l | Safe Ocean" %}
+{% set popis = r.perex %}
+{% set cesta = "realizace/" ~ r.slug ~ "/" %}
+{% block telo %}stranka detail{% endblock %}
+{% block obsah %}
+<article class="rd">
+  <nav class="drobky" aria-label="Drobečková navigace"><a href="{{ url('') }}">Úvod</a> / <a href="{{ url('realizace') }}">Realizace</a> / <span>{{ r.nazev }}</span></nav>
+  <header class="rd__hlava">
+    <h1>{{ r.nazev|cz }}</h1>
+    <dl class="rd__data">
+      <div><dt>Typ</dt><dd>{{ r.typ }}</dd></div>
+      <div><dt>Objem</dt><dd>{{ r.litru }}&nbsp;l</dd></div>
+      <div><dt>Rok</dt><dd>{{ r.rok }}</dd></div>
+      <div><dt>Prostor</dt><dd>{{ r.prostor }}</dd></div>
+    </dl>
+  </header>
+  <figure class="rd__hero">{{ img(r.fotky[0], alt=r.alt, sizes="100vw", eager=True) }}</figure>
+  <div class="rd__text">
+    <p class="velky">{{ r.text[0]|cz }}</p>
+    <div class="rd__reseni">
+      <h2>{{ r.reseni_nadpis|cz }}</h2>
+      <p>{{ r.reseni|cz }}</p>
+    </div>
+  </div>
+  <div class="rd__galerie">
+    {% for f in r.fotky[1:] %}
+    <figure class="reveal">{{ img(f, alt=r.nazev ~ " – fotka " ~ (loop.index + 1), sizes="(min-width: 900px) 46vw, 100vw") }}</figure>
+    {% endfor %}
+  </div>
+  {% set dalsi = data.realizace[(index + 1) % (data.realizace|length)] %}
+  <a class="rd__dalsi" href="{{ url('realizace/' ~ dalsi.slug) }}" data-noc>
+    <span class="mini">Další realizace</span>
+    <span class="rd__dalsi-nazev">{{ dalsi.nazev|cz }}</span>
+    <span class="data"><span>{{ dalsi.typ }}</span><span>{{ dalsi.litru }}&nbsp;l</span><span>{{ dalsi.rok }}</span></span>
+    {{ img(dalsi.fotky[0], alt="", sizes="(min-width: 900px) 40vw, 100vw") }}
+  </a>
+</article>
+<section class="cta-pruh" data-noc>
+  <h2>Chcete podobné akvárium?</h2>
+  <a class="tl tl--plne" href="{{ url('') }}#na-miru">Vyzkoušet rozměr</a>
+  <a class="tl" href="{{ url('kontakt') }}">Napsat nám</a>
+</section>
+{% endblock %}
