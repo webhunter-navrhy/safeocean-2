@@ -141,43 +141,54 @@ ul { margin: 0; padding: 0; list-style: none; }
 .nadtitul { display: block; font-size: .85rem; font-weight: 500; color: var(--blue); margin-bottom: .9rem; letter-spacing: .01em; }
 @media (max-width: 700px) { .sekce-hlava { grid-template-columns: 1fr; } }
 
-/* ── úvod: akvárium svítí v tmavém prostoru (tmavá a modrá z loga) ── */
-.uvod { --prekryv: clamp(7rem, 24vw, 21rem); }
-.uvod__tma {
-  background:
-    radial-gradient(60% 75% at 62% 100%, rgba(53,27,248,.42), rgba(53,27,248,0) 72%),
-    radial-gradient(40% 50% at 12% 0%, rgba(21,56,255,.14), rgba(21,56,255,0) 70%),
-    var(--tma);
-  color: rgba(255,255,255,.76);
-  padding: clamp(3rem, 7vw, 6.5rem) 0 calc(var(--prekryv) + clamp(2.5rem, 4.5vw, 4rem));
+/* ── úvod: rozsvícené akvárium v tmavé místnosti, fotka až k pravému okraji ── */
+.uvod {
+  --text-sl: minmax(0, 33rem);
+  display: grid;
+  grid-template-columns: max(var(--gut), calc((100% - var(--wrap)) / 2 + var(--gut))) var(--text-sl) clamp(1.5rem, 4vw, 4.5rem) minmax(0, 1fr);
+  background: var(--tma); color: rgba(255,255,255,.78);
+  min-height: clamp(600px, calc(100svh - 152px), 860px);
+  position: relative; isolation: isolate; overflow: hidden;
 }
-.uvod__hlava { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 1.75rem clamp(2rem, 5vw, 5rem); align-items: end; }
-.uvod h1 { font-size: clamp(3rem, 7.6vw, 7rem); color: #fff; line-height: .95; letter-spacing: -0.045em; }
-.nadtitul--svetly { color: #B9B1FF; margin-bottom: 1.4rem; }
-.uvod__perex { color: rgba(255,255,255,.8); margin-bottom: 1.75rem; max-width: 44ch; }
+.uvod::before { /* modré světlo akvária rozlité do místnosti */
+  content: ""; position: absolute; z-index: -1; inset: 0;
+  background: radial-gradient(45% 60% at 62% 55%, rgba(53,27,248,.30), rgba(53,27,248,0) 70%);
+}
+.uvod__text { grid-column: 2; align-self: center; padding-block: clamp(3.5rem, 7vw, 6rem); position: relative; z-index: 2; }
+.uvod h1 { font-size: clamp(3.2rem, 6.6vw, 6.4rem); color: #fff; line-height: .95; letter-spacing: -0.045em; margin-bottom: 1.6rem; }
+.nadtitul--svetly { color: #B9B1FF; margin-bottom: 1.5rem; }
+.uvod__perex { color: rgba(255,255,255,.8); margin-bottom: 2rem; max-width: 40ch; }
 .uvod__akce { display: flex; flex-wrap: wrap; gap: 12px; }
-.uvod__blok { position: relative; margin-top: calc(var(--prekryv) * -1); }
-.uvod__foto { position: relative; margin: 0; border-radius: var(--r); overflow: hidden; background: #0d0a33; aspect-ratio: 2.2; box-shadow: 0 30px 60px -36px rgba(7,3,39,.45); }
-.uvod__foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 52%; }
-.uvod__popisek { position: absolute; left: 22px; bottom: 18px; color: #fff; font-size: .85rem; text-shadow: 0 1px 12px rgba(0,0,0,.55); margin: 0; }
-.uvod__karta {
-  position: absolute; right: calc(var(--gut) + 22px); bottom: 22px; width: min(360px, 40%); background: #fff; border-radius: var(--r);
-  padding: 20px 22px; display: grid; gap: 4px; text-decoration: none; color: var(--ink); box-shadow: 0 14px 44px -14px rgba(7,3,39,.45);
+.uvod__obchod {
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem); padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.16);
+  text-decoration: none; color: rgba(255,255,255,.66); font-size: .93rem; max-width: 30rem;
 }
-.uvod__karta b { font-weight: 500; font-size: 1.08rem; }
-.uvod__karta span { color: var(--muted); font-size: .92rem; }
-.uvod__karta .sipka { margin-top: 10px; justify-self: start; }
+.uvod__obchod b { display: block; color: #fff; font-weight: 500; font-size: 1.02rem; margin-bottom: 2px; }
+.uvod__obchod-sipka { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; color: #fff; transition: background-color .2s, border-color .2s, transform .2s; }
+.uvod__obchod:hover .uvod__obchod-sipka { background: var(--blue); border-color: var(--blue); transform: translateX(3px); }
+.uvod__obchod:hover b { text-decoration: underline; text-underline-offset: 3px; }
+.uvod__foto { grid-column: 4 / -1; grid-row: 1; margin: 0; position: relative; }
+.uvod__foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 48% 50%; }
+.uvod__foto::after { /* tmavé okraje fotky splynou s plochou */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, var(--tma) 0%, rgba(7,3,39,.6) 9%, rgba(7,3,39,0) 26%),
+    linear-gradient(0deg, rgba(7,3,39,.55) 0%, rgba(7,3,39,0) 18%);
+}
+.uvod__popisek { position: absolute; right: var(--gut); bottom: 18px; z-index: 1; margin: 0; color: rgba(255,255,255,.75); font-size: .82rem; }
 @media (max-width: 899px) {
-  .uvod { --prekryv: clamp(5rem, 30vw, 12rem); }
-  .uvod__hlava { grid-template-columns: 1fr; }
-  .uvod__foto { aspect-ratio: 4 / 3.2; border-radius: var(--r) var(--r) 0 0; box-shadow: none; }
+  .uvod { grid-template-columns: var(--gut) minmax(0, 1fr) var(--gut); min-height: 0; }
+  .uvod::before { background: radial-gradient(80% 40% at 50% 85%, rgba(53,27,248,.35), rgba(53,27,248,0) 70%); }
+  .uvod__text { grid-column: 2; padding-block: 2.75rem 2rem; }
+  .uvod__foto { grid-column: 1 / -1; grid-row: 2; aspect-ratio: 4 / 3.3; }
   .uvod__foto img { object-position: 50% 50%; }
-  .uvod__karta { position: static; width: auto; box-shadow: none; border: 1px solid var(--line); border-top: 0; border-radius: 0 0 var(--r) var(--r); }
-  .uvod__popisek { bottom: 12px; left: 14px; }
+  .uvod__foto::after { background: linear-gradient(180deg, var(--tma) 0%, rgba(7,3,39,0) 22%), linear-gradient(0deg, rgba(7,3,39,.5) 0%, rgba(7,3,39,0) 20%); }
+  .uvod__obchod { margin-top: 2.25rem; }
 }
 
 /* pruh výhod */
-.vyhody { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: clamp(2.5rem, 5vw, 4rem); }
+.vyhody { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid var(--line); }
 .vyhody li { padding: 22px 24px 22px 0; }
 .vyhody li + li { padding-left: 24px; border-left: 1px solid var(--line); }
 .vyhody b { display: block; color: var(--ink); font-weight: 500; margin-bottom: 2px; }
