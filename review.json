@@ -1,18 +1,18 @@
 {
   "znamka": 8,
   "slabiny": [
-    "Řádek výhod pod úvodem (PC buňka 2: „Od návrhu po servis / Mořská i sladkovodní / Seženeme i vzácné druhy / Osobní odběr v Praze 3“, mobil buňka 2) má popisky v malém světle šedém písmu s nízkým kontrastem a na monitoru se skoro ztrácejí. Oprava: popisky zvětšit na 15–16 px a ztmavit na zhruba #4a4a5a, aby kontrast byl aspoň 4,5:1.",
-    "Karty produktů na mobilu (buňky 5–6: Klaun očkatý, Zoanthus, Kreveta čisticí, Bodlok královský…): odkaz s názvem má na výšku jen 20 px a QA hlásí 14 dotykových cílů pod 40 px. Oprava: proklik roztáhnout na celou kartu (fotka + název, např. přes ::after s position:absolute; inset:0) a tlačítko „+“ nechat nad ním přes z-index.",
-    "Postup realizace (PC buňka 6: Konzultace → Návrh → Výroba → Instalace a spuštění → Servis) má popisy kroků v drobném šedém písmu kolem 12 px a pět úzkých sloupců působí jako poznámka pod čarou. Oprava: popisy zvětšit na 14–15 px, ztmavit a na 1280 px dát kroky do 3 + 2 sloupců nebo je rozšířit, aby řádky nebyly tak krátké."
+    "Sekce Akvárium na míru, PC buňka 6 (Design / Materiály / Bezpečnost / Skrytá technika): popisy pilířů mají jen 0,92rem a barvu --muted, takže působí jako dřív výhody a kroky. Oprava: .pilire dd zvětšit na 1rem a nastavit color: var(--text), aby celá sekce měla jednu úroveň čitelnosti.",
+    "Vybrané produkty na PC, buňky 4–5: kategorie nad názvem (0,8rem) a dvouřádkový popis (0,875rem, --muted) jsou drobné a bledé, takže řádek pod fotkou splývá. Oprava: .karta__popis dát na 0,92rem v barvě var(--text) a .karta__znacka na 0,85rem, aby se karty daly přečíst bez přibližování.",
+    "Realizace na mobilu, buňky 10–12: pět fotek přes celou šířku pod sebou dělá dlouhý monotónní scroll, než přijde servis. Oprava: na 390 px nechat velkou jen první realizaci a další čtyři dát do mřížky 2 × 2 s menšími popisky, případně do vodorovného posuvníku se scroll-snap."
   ],
   "zavazne": [],
   "silne": [
-    "Všechny výtky z minulého kola jsou opravené. „Kancelář co zaujme“ je teď na PC v mřížce realizací (buňka 7) v přiměřené velikosti a QA nehlásí žádnou chybu. Úvod na mobilu (buňka 1) navazuje fotkou hned pod tlačítky a patička na mobilu (buňky 16–17) začíná bez velkého prázdného pruhu.",
-    "Brand klienta drží: logo s mantami je vlevo v hlavičce, akční barva je aktinická modrá #351bf8 a sekce servisu stojí na tmavé brandové #070327, ne na vymyšleném luxusním tmavém vzhledu. Písmo Host Grotesk je ze starého webu klienta a háčky se kreslí správně.",
-    "Fotky jsou výhradně klientovy (realizace, Václav při servisu, produkty), ve stejné gradaci. Údaje u realizací (litry, rok, typ) přesně odpovídají briefu a nic není vymyšlené.",
-    "Spojení e-shopu (kategorie, vybrané produkty s cenami, košík, vyhledávání) a zakázkových akvárií je přehledné. CTA „Poptat akvárium“ a kontakt jsou vidět hned v hlavičce, a formulář s volbou „Co řešíte“ jasně rozděluje typy poptávek.",
-    "Na mobilu nic nepřetéká na šířkách 390 ani 360 px, pořadí obsahu dává smysl a sekce realizací a servisu fungují na šířku telefonu."
+    "Všechny tři minulé výtky jsou opravené. Popisky výhod jsou teď 0,95rem v #2F2E4A. Celá produktová karta je klikací přes ::before s inset:0 a tlačítko „+“ leží nad ní přes z-index. QA dál hlásí odkaz 86×20, protože měří jen samotný <a>, skutečná dotyková plocha je ale celá karta. Postup realizace je teď řádkový seznam s popisy 1rem v tmavé barvě místo pěti úzkých sloupců.",
+    "Brand sedí. Logo s mantami je vlevo v hlavičce, tmavá #070327 a aktinická modrá #351BF8 jsou z loga, písmo Host Grotesk je ze starého webu klienta.",
+    "Úvod funguje i jako koncept: v tmavém prostoru svítí akvárium a skutečná fotka realizace klienta přesahuje přes hranu. Na první pohled je jasné, že jde o studio akvárií na míru a k tomu obchod.",
+    "Realizace mají jen doložená fakta z briefu (objem, rok, mořské nebo sladkovodní) a kontakt je dohledatelný v liště, v kontaktní sekci s formulářem i v patičce.",
+    "Bez přetékání na všech šesti šířkách, hlavička obchodu s kategoriemi, hledáním a košíkem působí jako profesionální specializovaný e-shop."
   ],
-  "verdikt": "Opravené kolo splnilo všechny tři výtky včetně závažné vady se zvětšenou fotkou. Web je čistý, drží brand Safe Ocean a nemá žádnou závažnou vadu, takže se dá poslat. Zbývají jen drobnosti v kontrastu a velikosti drobného textu a v dotykových cílech produktů.",
-  "_hash": "c303ed5be31f75324ebed3bb3e843d6421656130"
+  "verdikt": "Odeslat. Všechny výtky z minulého kola jsou opravené a žádná závažná vada nepřibyla. Zbývají jen drobnosti v čitelnosti sekundárních popisků a v rytmu mobilní galerie realizací.",
+  "_hash": "c821ceed7bdadd471b241fdfbb12ef4199989588"
 }

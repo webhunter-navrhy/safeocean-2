@@ -8,28 +8,33 @@
 {% endblock %}
 {% block obsah %}
 <section class="uvod">
-  <div class="wrap">
-    <div class="uvod__hlava">
-      <h1>Akvária na&nbsp;míru</h1>
+  <div class="uvod__tma">
+    <div class="wrap uvod__hlava">
+      <div>
+        <span class="nadtitul nadtitul--svetly">{{ "Mořská a sladkovodní akvária · Praha"|cz }}</span>
+        <h1>Akvária na&nbsp;míru</h1>
+      </div>
       <div>
         <p class="perex uvod__perex">{{ "Mořská a sladkovodní akvária, která kombinují elegantní design, kvalitní materiály a odbornou instalaci. Navrhneme, postavíme a dlouhodobě se o ně postaráme. V obchodě najdete vše pro chov – od ryb a korálů po krmiva a techniku."|cz }}</p>
         <div class="uvod__akce">
           <a class="tl tl--plne" href="{{ url('akvaria-na-miru') }}">Poptat akvárium</a>
-          <a class="tl" href="{{ url('obchod') }}">Do obchodu</a>
+          <a class="tl tl--svetle" href="{{ url('obchod') }}">Do obchodu</a>
         </div>
       </div>
     </div>
-    <div class="uvod__blok">
-      <figure class="uvod__foto">
-        {{ img("f/hero.jpg", alt="Mořské akvárium s korálovým útesem zabudované v tmavé skříni v obývacím prostoru", sizes="(min-width: 1360px) 1280px, 100vw", eager=True) }}
-        <figcaption class="uvod__popisek">Mořské akvárium v rodinném domě, realizace Safe Ocean</figcaption>
-        <a class="uvod__karta" href="{{ url('obchod') }}">
-          <b>Obchod pro akvaristy</b>
-          <span>{{ "Ryby, korály, bezobratlí, rostliny, krmiva, technika a péče o vodu."|cz }}</span>
-          <span class="sipka">Prohlédnout sortiment</span>
-        </a>
-      </figure>
-    </div>
+  </div>
+  <div class="wrap uvod__blok">
+    <figure class="uvod__foto">
+      {{ img("f/hero.jpg", alt="Mořské akvárium s korálovým útesem zabudované v tmavé skříni v obývacím prostoru", sizes="(min-width: 1360px) 1280px, 100vw", eager=True) }}
+      <figcaption class="uvod__popisek">Mořské akvárium v rodinném domě, realizace Safe Ocean</figcaption>
+    </figure>
+    <a class="uvod__karta" href="{{ url('obchod') }}">
+      <b>Obchod pro akvaristy</b>
+      <span>{{ "Ryby, korály, bezobratlí, rostliny, krmiva, technika a péče o vodu."|cz }}</span>
+      <span class="sipka">Prohlédnout sortiment</span>
+    </a>
+  </div>
+  <div class="wrap">
     <ul class="vyhody">
       <li><b>Od návrhu po servis</b><span>{{ "Celý proces řešíme sami, včetně pravidelné péče."|cz }}</span></li>
       <li><b>Mořská i sladkovodní</b><span>{{ "Poradíme s typem akvária i výběrem živočichů."|cz }}</span></li>
@@ -109,13 +114,19 @@
         </div>
       </div>
     </div>
-    <ol class="kroky">
-      <li><h3>Konzultace</h3><p>{{ "Prohlédneme prostor a probereme, jaké akvárium chcete."|cz }}</p></li>
-      <li><h3>Návrh</h3><p>{{ "Rozměry, pohledové osy, statika a umístění techniky."|cz }}</p></li>
-      <li><h3>Výroba</h3><p>{{ "Akvárium, skříň i obklady vyrábíme na míru prostoru."|cz }}</p></li>
-      <li><h3>Instalace a spuštění</h3><p>{{ "Doprava, montáž a záběh. Čistě, tiše, s respektem k prostoru."|cz }}</p></li>
-      <li><h3>Servis</h3><p>{{ "Pravidelná péče, aby akvárium zůstalo stabilní a krásné."|cz }}</p></li>
-    </ol>
+    <div class="postup">
+      <div class="postup__hlava">
+        <h3 class="postup__h">Jak to probíhá</h3>
+        <p>{{ "Od první konzultace po pravidelný servis – celý proces řešíme sami."|cz }}</p>
+      </div>
+      <ol class="kroky">
+        <li><h3>Konzultace</h3><p>{{ "Prohlédneme prostor a probereme, jaké akvárium chcete."|cz }}</p></li>
+        <li><h3>Návrh</h3><p>{{ "Rozměry, pohledové osy, statika a umístění techniky."|cz }}</p></li>
+        <li><h3>Výroba</h3><p>{{ "Akvárium, skříň i obklady vyrábíme na míru prostoru."|cz }}</p></li>
+        <li><h3>Instalace a spuštění</h3><p>{{ "Doprava, montáž a záběh. Čistě, tiše, s respektem k prostoru."|cz }}</p></li>
+        <li><h3>Servis</h3><p>{{ "Pravidelná péče, aby akvárium zůstalo stabilní a krásné."|cz }}</p></li>
+      </ol>
+    </div>
   </div>
 </section>
 
@@ -133,7 +144,7 @@
       {% for slug in poradi %}{% set prvni = loop.first %}{% for r in data.realizace if r.slug == slug %}
       <a class="real{% if prvni %} real--velka{% endif %}" href="{{ url('realizace/' ~ r.slug) }}">
         <span class="real__foto">{{ img(r.fotky[0], alt=r.alt, sizes=("(min-width: 900px) 42vw, 100vw" if prvni else "(min-width: 900px) 28vw, (min-width: 520px) 50vw, 100vw")) }}</span>
-        <span class="real__popis"><b>{{ r.nazev|cz }}</b><span>{{ r.typ }} · {{ r.litru }}&nbsp;l · {{ r.rok }}</span></span>
+        <span class="real__popis"><b>{{ r.nazev|cz }}</b><span>{{ r.typ }} · {{ r.litru|replace(" ", "&nbsp;") }}&nbsp;l · {{ r.rok }}</span></span>
       </a>
       {% endfor %}{% endfor %}
     </div>
