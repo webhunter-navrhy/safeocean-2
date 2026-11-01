@@ -3,12 +3,16 @@
 {% set popis = "Akvária na míru v kancelářích, recepcích, rodinných domech i bytech. Mořská i sladkovodní, od 600 do 2 200 litrů." %}
 {% set cesta = "realizace/" %}
 {% block obsah %}
+<div class="podtma">
 <div class="wrap">
   <nav class="drobky" aria-label="Drobečková navigace"><a href="{{ url('') }}">Úvod</a><span aria-hidden="true">/</span><span>Realizace</span></nav>
   <header class="podhlava">
     <h1>Realizace</h1>
     <p>{{ "Instalaci provádíme s maximálním důrazem na čistotu, ticho a přesnost. Každý krok je pečlivě naplánován tak, aby nenarušil prostor a výsledek byl dokonalý."|cz }}</p>
   </header>
+</div>
+</div>
+<div class="wrap podtma__dal">
   <div class="r-vypis">
     {% for r in data.realizace %}
     <article class="r-polozka">

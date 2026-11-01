@@ -3,12 +3,16 @@
 {% set popis = r.perex %}
 {% set cesta = "realizace/" ~ r.slug ~ "/" %}
 {% block obsah %}
+<div class="podtma podtma--foto">
 <div class="wrap">
   <nav class="drobky" aria-label="Drobečková navigace"><a href="{{ url('') }}">Úvod</a><span aria-hidden="true">/</span><a href="{{ url('realizace') }}">Realizace</a><span aria-hidden="true">/</span><span>{{ r.nazev }}</span></nav>
   <header class="podhlava">
     <h1>{{ r.nazev|cz }}</h1>
     <p class="perex">{{ r.perex|cz }}</p>
   </header>
+</div>
+</div>
+<div class="wrap podtma__foto">
   <figure class="rd__hero">{{ img(r.fotky[0], alt=r.alt, sizes="(min-width: 1360px) 1280px, 100vw", eager=True) }}</figure>
   <div class="rd__obsah">
     <div>

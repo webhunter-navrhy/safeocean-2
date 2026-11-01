@@ -3,6 +3,7 @@
 {% set popis = "Pravidelný servis mořských i sladkovodních akvárií: údržba, kontrola technologií, výměna vody a péče o živočichy. Praha." %}
 {% set cesta = "servis/" %}
 {% block obsah %}
+<div class="podtma">
 <div class="wrap">
   <nav class="drobky" aria-label="Drobečková navigace"><a href="{{ url('') }}">Úvod</a><span aria-hidden="true">/</span><span>Servis</span></nav>
   <header class="podhlava">
@@ -12,6 +13,7 @@
       <div class="uvod__akce" style="margin-top:1.5rem"><a class="tl tl--plne" href="#poptavka">Domluvit servis</a></div>
     </div>
   </header>
+</div>
 </div>
 <section class="servis-pas" aria-labelledby="co-h">
   <figure class="servis-pas__foto">{{ img("f/servis-led-2.jpg", alt="Servis mořského akvária – nastavení LED osvětlení nad hladinou", sizes="(min-width: 900px) 50vw, 100vw", eager=True) }}</figure>

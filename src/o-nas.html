@@ -3,9 +3,13 @@
 {% set popis = "Safe Ocean – akvária na míru, servis a obchod pro akvaristy. Václav Husa, Praha 3." %}
 {% set cesta = "o-nas/" %}
 {% block obsah %}
+<div class="podtma">
 <div class="wrap">
   <nav class="drobky" aria-label="Drobečková navigace"><a href="{{ url('') }}">Úvod</a><span aria-hidden="true">/</span><span>O nás</span></nav>
   <header class="podhlava"><h1>O nás</h1></header>
+</div>
+</div>
+<div class="wrap podtma__dal">
   <div class="onas">
     <figure>{{ img("f/vaclav-husa-2.jpg", alt="Václav Husa, Safe Ocean, u mořského akvária", sizes="(min-width: 900px) 44vw, 100vw", eager=True) }}<figcaption>Václav Husa, Safe Ocean</figcaption></figure>
     <div>

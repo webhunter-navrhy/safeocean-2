@@ -3,15 +3,19 @@
 {% set popis = "Mořská a sladkovodní akvária na míru do domácností, kanceláří a recepcí. Návrh se statikou, výroba, instalace na klíč a servis. Spolupráce s architekty." %}
 {% set cesta = "akvaria-na-miru/" %}
 {% block obsah %}
+<div class="podtma podtma--foto">
 <div class="wrap">
   <nav class="drobky" aria-label="Drobečková navigace"><a href="{{ url('') }}">Úvod</a><span aria-hidden="true">/</span><span>Akvária na míru</span></nav>
   <header class="podhlava">
     <h1>Akvária na&nbsp;míru</h1>
     <div>
       <p class="perex">{{ "Kombinujeme elegantní design, kvalitní materiály a odbornou instalaci. Každé akvárium vytváříme přesně podle prostoru i představ klienta."|cz }}</p>
-      <div class="uvod__akce" style="margin-top:1.5rem"><a class="tl tl--plne" href="#poptavka">Poptat akvárium</a><a class="tl" href="#kalkulacka">Spočítat objem a zátěž</a></div>
+      <div class="uvod__akce" style="margin-top:1.5rem"><a class="tl tl--plne" href="#poptavka">Poptat akvárium</a><a class="tl tl--svetle" href="#kalkulacka">Spočítat objem a zátěž</a></div>
     </div>
   </header>
+</div>
+</div>
+<div class="wrap podtma__foto">
   <figure class="rd__hero">{{ img("f/utes-uhel.jpg", alt="Dlouhé mořské akvárium s korálovým útesem, pohled šikmo podél přední stěny", sizes="(min-width: 1360px) 1280px, 100vw", eager=True) }}</figure>
 </div>
 

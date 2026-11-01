@@ -620,3 +620,37 @@ ul { margin: 0; padding: 0; list-style: none; }
   .drobky a { display: inline-flex; align-items: center; min-height: 40px; }
   .sipka { min-height: 40px; display: inline-flex; align-items: center; }
 }
+
+/* ── tmavá hlavička podstránek (navazuje na úvod) ── */
+:root { --prekryv-pod: clamp(5rem, 15vw, 13rem); }
+.podtma {
+  background:
+    radial-gradient(55% 80% at 70% 100%, rgba(53,27,248,.38), rgba(53,27,248,0) 72%),
+    var(--tma);
+  color: rgba(255,255,255,.78);
+}
+.podtma--foto { padding-bottom: var(--prekryv-pod); }
+.podtma .drobky, .podtma .drobky a { color: rgba(255,255,255,.62); }
+.podtma .drobky a:hover { color: #fff; }
+.podtma .drobky span[aria-hidden] { color: rgba(255,255,255,.3); }
+.podtma h1 { color: #fff; }
+.podtma .podhlava { padding-bottom: clamp(3rem, 6vw, 5rem); }
+.podtma--foto .podhlava { padding-bottom: clamp(2.5rem, 4.5vw, 3.75rem); }
+.podtma .podhlava p, .podtma .perex { color: rgba(255,255,255,.8); }
+.podtma__foto { margin-top: calc(var(--prekryv-pod) * -1); }
+.podtma__foto .rd__hero { box-shadow: 0 30px 60px -36px rgba(7,3,39,.45); background: #0d0a33; }
+.podtma + .servis-pas { border-top: 1px solid rgba(255,255,255,.1); }
+
+/* ── karty produktů na šedé ploše jako bílé karty ── */
+.sekce--seda .karta { background: #fff; border-radius: var(--r); overflow: hidden; transition: box-shadow .25s ease; }
+.sekce--seda .karta:hover { box-shadow: 0 18px 40px -24px rgba(12,10,46,.28); }
+.sekce--seda .karta__foto { border-radius: 0; }
+.sekce--seda .karta__telo { padding: 16px 16px 16px; }
+@media (max-width: 560px) { .sekce--seda .karta__telo { padding: 12px 12px 12px; } }
+
+/* ── dlaždice kategorií: jemné světlo z loga u produktových, šipka při najetí ── */
+.kat--packshot, .kat--packshot .kat__text { background: transparent; }
+.kat--packshot { background: radial-gradient(90% 70% at 50% 35%, #FFFFFF 0%, #F1F0FD 55%, #ECEDF6 100%); }
+.kat__text b::after { content: "→"; display: inline-block; margin-left: .45em; opacity: 0; transform: translateX(-4px); transition: opacity .2s, transform .2s; color: var(--blue); }
+.kat:hover .kat__text b::after { opacity: 1; transform: none; }
+.podtma__dal { padding-top: clamp(2.5rem, 5vw, 4.5rem); }
