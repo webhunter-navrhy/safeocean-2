@@ -1,40 +1,38 @@
 {% extends "_base.html" %}
 {% set titulek = "O nás – Safe Ocean, akvária na míru Praha" %}
-{% set popis = "Safe Ocean navrhuje, instaluje a servisuje mořská a sladkovodní akvária na míru. Spolupráce s architekty, statika, servis." %}
+{% set popis = "Safe Ocean – akvária na míru, servis a obchod pro akvaristy. Václav Husa, Praha 3." %}
 {% set cesta = "o-nas/" %}
-{% block telo %}stranka{% endblock %}
 {% block obsah %}
-<section class="podhlava podhlava--onas">
-  <h1>Děláme věci poctivě a&nbsp;bez kompromisů</h1>
-  <p>Specializujeme se na akvária na míru, kde se potkává individuální design, prémiové materiály a&nbsp;technická preciznost.</p>
-</section>
-<section class="onas">
-  <figure class="onas__foto">{{ img("vasek-portret.jpg", alt="Václav Husa ze Safe Ocean u mořského akvária", sizes="(min-width: 900px) 50vw, 100vw", eager=True) }}<figcaption class="popisek">Václav Husa, Safe Ocean</figcaption></figure>
-  <div class="onas__text">
-    <p class="velky">Každý projekt navrhujeme s&nbsp;respektem k&nbsp;prostoru, architektuře i&nbsp;životu uvnitř akvária.</p>
-    <p>Technologie zůstávají skryté, pracují tiše a&nbsp;spolehlivě v&nbsp;pozadí. Klientům nabízíme kompletní realizaci na klíč včetně dlouhodobého profesionálního servisu. Díky tomu vytváříme stabilní, esteticky výjimečná akvária, která nepůsobí jako doplněk, ale jako přirozená součást interiéru a&nbsp;zdroj klidu.</p>
+<div class="wrap">
+  <nav class="drobky" aria-label="Drobečková navigace"><a href="{{ url('') }}">Úvod</a><span aria-hidden="true">/</span><span>O nás</span></nav>
+  <header class="podhlava"><h1>O nás</h1></header>
+  <div class="onas">
+    <figure>{{ img("f/vaclav-husa-2.jpg", alt="Václav Husa, Safe Ocean, u mořského akvária", sizes="(min-width: 900px) 44vw, 100vw", eager=True) }}<figcaption>Václav Husa, Safe Ocean</figcaption></figure>
+    <div>
+      <h2>{{ "Děláme věci tak, aby stály za to"|cz }}</h2>
+      <p class="perex" style="margin-top:1.2rem">{{ "V Safe Ocean děláme věci poctivě a bez kompromisů. Specializujeme se na akvária na míru, kde se snoubí individuální design, prémiové materiály a technická preciznost."|cz }}</p>
+      <p>{{ "Nesoustředíme se jen na samotnou výrobu – řešíme celý proces od návrhu přes instalaci až po pravidelný servis. Každé akvárium navrhujeme tak, aby zapadlo do interiéru a bylo zároveň snadno udržovatelné."|cz }}</p>
+      <p>{{ "Výběr živočichů přizpůsobujeme nejen estetice, ale i biologické rovnováze. Jsme schopni sehnat živočicha podle vašich požadavků a vytvořit mu ideální podmínky. Doporučujeme druhy, které se vzájemně doplňují a dlouhodobě prosperují."|cz }}</p>
+      <div class="uvod__akce" style="margin-top:1.75rem"><a class="tl tl--plne" href="{{ url('kontakt') }}">Kontakt</a><a class="tl" href="{{ url('realizace') }}">Realizace</a></div>
+    </div>
+  </div>
+</div>
+<section class="sekce sekce--seda" aria-labelledby="bezp-h">
+  <div class="wrap dvojice">
+    <div><h2 id="bezp-h">{{ "Bezpečnost a konstrukční jistota"|cz }}</h2></div>
+    <div>
+      <p>{{ "Bezpečnost je pro nás prioritou. Každé akvárium je navrženo s ohledem na statiku, nosnost podlahy a dlouhodobé zatížení. Používáme pevnostní výpočty, zesílená skla a konstrukce přizpůsobené konkrétnímu prostoru."|cz }}</p>
+      <p>{{ "Spoje, přepady i technické komory jsou řešeny tak, aby minimalizovaly rizika a maximalizovaly životnost celého systému. Akvárium tak není jen krásné, ale i bezpečné řešení pro náročné rezidenční a komerční prostory."|cz }}</p>
+    </div>
   </div>
 </section>
-<section class="onas-bloky">
-  <article class="reveal">
-    <h2>Spolupráce s&nbsp;architekty a&nbsp;designéry</h2>
-    <p>Pracujeme v&nbsp;úzké spolupráci s&nbsp;architekty, interiérovými designéry a&nbsp;developery. Akvárium vnímáme jako plnohodnotný architektonický prvek, nikoli dodatečný doplněk. Už ve fázi návrhu řešíme pohledové osy, proporce, světlo i&nbsp;technické návaznosti na stavbu.</p>
-    <p>Díky tomu akvárium přirozeně zapadá do konceptu interiéru a&nbsp;podporuje jeho charakter – a&nbsp;působí promyšleně i&nbsp;po letech.</p>
-  </article>
-  <figure class="reveal">{{ img("r/stena-1.jpg", alt="Mořské akvárium zabudované do dřevěné obývací stěny s knihovnou", sizes="(min-width: 900px) 50vw, 100vw") }}</figure>
-  <figure class="reveal">{{ img("p/technicka-mistnost.jpg", alt="Technické zázemí akvária v samostatné místnosti", sizes="(min-width: 900px) 34vw, 100vw") }}</figure>
-  <article class="reveal">
-    <h2>Bezpečnost a&nbsp;konstrukční jistota</h2>
-    <p>Bezpečnost je pro Safe Ocean absolutní prioritou. Každé akvárium je navrženo s&nbsp;ohledem na statiku, nosnost podlahy a&nbsp;dlouhodobé zatížení. Používáme pevnostní výpočty, zesílená skla a&nbsp;konstrukce přizpůsobené konkrétnímu prostoru.</p>
-    <p>Spoje, přepady a&nbsp;technické komory řešíme tak, aby akvárium bylo bezpečné pro provoz i&nbsp;pro budovu, ve které stojí.</p>
-  </article>
-</section>
-<section class="onas-servis" data-noc>
-  <div>
-    <h2>Péče a&nbsp;servis bez starostí</h2>
-    <p>I&nbsp;to nejkrásnější akvárium potřebuje odbornou péči. Pravidelná údržba, kontrola technologií, výměna vody i&nbsp;péče o&nbsp;živočichy probíhá diskrétně a&nbsp;profesionálně.</p>
-    <a class="tl tl--plne" href="{{ url('obchod/pravidelny-servis') }}">Pravidelný servis</a>
+<section class="sekce" aria-labelledby="obchod-h">
+  <div class="wrap dvojice">
+    <div><h2 id="obchod-h">{{ "Obchod pro akvaristy"|cz }}</h2></div>
+    <div>
+      <p>{{ "V obchodě nabízíme to, s čím sami pracujeme u akvárií našich klientů: ryby, korály, bezobratlé, rostliny, krmiva, techniku a péči o vodu. Živé zboží předáváme osobně, abychom mohli poradit s aklimatizací."|cz }}</p>
+      <a class="sipka" href="{{ url('obchod') }}">Do obchodu</a>
+    </div>
   </div>
-  {{ img("vasek-servis.jpg", alt="Servis mořského akvária, kontrola osvětlení", sizes="(min-width: 900px) 50vw, 100vw") }}
 </section>
 {% endblock %}

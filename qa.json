@@ -3,7 +3,9 @@
   "ok": true,
   "chyby": [],
   "varovani": [
-    "Web má noindex (u ostrého webu pravděpodobně chyba)"
+    "Web má noindex (u ostrého webu pravděpodobně chyba)",
+    "Dotykové cíle <40 px na mobilu: 14× (např. a \"Klaun očkatý\" 86×20; a \"Zoanthus\" 60×20; a \"Kreveta čisticí\" 92×20; a \"Bodlok královský\" 112×20)",
+    "Podstránek je víc než 60, prošla jsem jen prvních 60"
   ],
   "metriky": {
     "sirky": {
@@ -32,21 +34,21 @@
         "pocet_pretekajicich": 0
       }
     },
-    "preneseno_PC_MB": 1.71,
+    "preneseno_PC_MB": 1.42,
     "nejvetsi_obrazek_PC": {
-      "kB": 255,
-      "url": "http://localhost:8765/safeocean-2/img/morske-detail-1280.webp"
+      "kB": 144,
+      "url": "http://localhost:8765/safeocean-2/img/f-hero-1280.webp"
     },
-    "snimku_PC": 16,
-    "preneseno_mobil_MB": 2.05,
+    "snimku_PC": 11,
+    "preneseno_mobil_MB": 1.88,
     "nejvetsi_obrazek_mobil": {
-      "kB": 255,
-      "url": "http://localhost:8765/safeocean-2/img/morske-detail-1280.webp"
+      "kB": 159,
+      "url": "http://localhost:8765/safeocean-2/img/r-panelak-1-1280.webp"
     },
-    "snimku_mobil": 18,
+    "snimku_mobil": 17,
     "seo": {
-      "title": "Safe Ocean – mořská a sladkovodní akvária na míru, Praha",
-      "description": "Mořská a sladkovodní akvária na míru v Praze. Návrh, výroba, instalace na klíč a pravidelný servis p",
+      "title": "Safe Ocean – akvária na míru a obchod pro akvaristy, Praha",
+      "description": "Akvária na míru v Praze – návrh, instalace a servis mořských i sladkovodních akvárií. Obchod s rybam",
       "lang": "cs",
       "h1": 1,
       "jsonld": [
@@ -59,12 +61,12 @@
       "canonical": true,
       "viewport": true
     },
-    "maly_dotykovy_cil": 0,
+    "maly_dotykovy_cil": 14,
     "font_nadpis": "Host Grotesk",
-    "font_text": "Fragment Mono",
+    "font_text": "Host Grotesk",
     "podstranky": {
-      "stranek": 26,
-      "obrazku": 184
+      "stranek": 60,
+      "obrazku": 250
     }
   }
 }

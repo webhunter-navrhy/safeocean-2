@@ -26,50 +26,100 @@
 </head>
 <body class="{% block telo %}{% endblock %}" data-base="{{ base }}">
 <a class="skip" href="#obsah">Přeskočit na obsah</a>
+{% set tel = site.kontakt.telefon|replace(' ', '') %}
+<div class="lista">
+  <div class="wrap lista__in">
+    <p>Akvária na míru a&nbsp;obchod pro akvaristy · {{ site.kontakt.adresa.ulice }}, Praha&nbsp;3</p>
+    <p class="lista__kontakt"><a href="tel:{{ tel }}">{{ site.kontakt.telefon }}</a><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a></p>
+  </div>
+</div>
 <header class="hlavicka" data-hlavicka>
-  <div class="hlavicka__in">
+  <div class="wrap hlavicka__in">
     <a href="{{ url('') }}" class="znacka" aria-label="Safe Ocean – úvod">
-      <span class="znacka__mark"><img src="{{ base }}img/logo-den.svg" alt="" width="26" height="40" class="znacka__den"><img src="{{ base }}img/logo-noc.svg" alt="" width="26" height="40" class="znacka__noc"></span>
+      <img src="{{ base }}img/logo-den.svg" alt="" width="24" height="37" class="znacka__mark">
       <span class="znacka__text">Safe Ocean</span>
     </a>
-    <nav class="menu" id="menu" aria-label="Hlavní">
-      {% for n in site.nav %}{% set h = n.href if n.href.startswith(('#', 'http', 'tel:', 'mailto:')) else url(n.href) %}{% if n.href.startswith('#') %}{% set h = url('') + n.href %}{% endif %}
-      <a href="{{ h }}"{% if cesta and n.href in cesta %} aria-current="page"{% endif %}>{{ n.text }}</a>{% endfor %}
-      <a class="menu__tel" href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a>
+    <nav class="menu" aria-label="Hlavní">
+      {% for n in site.nav %}<a href="{{ url(n.href) }}"{% if cesta and cesta.startswith(n.href) %} aria-current="page"{% endif %}>{{ n.text }}</a>{% endfor %}
     </nav>
-    <a class="kosik-odkaz" href="{{ url('kosik') }}" aria-label="Košík">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-      <span>Košík</span><b class="kosik-pocet" data-kosik-pocet hidden>0</b>
+    <form class="hledat" action="{{ url('obchod') }}" method="get" role="search">
+      <label class="sr" for="hledat-pole">Hledat v obchodě</label>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+      <input id="hledat-pole" name="q" type="search" placeholder="Hledat krmivo, rybu, korál…" autocomplete="off">
+    </form>
+    <a class="kosik-odkaz" href="{{ url('kosik') }}">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4.5 8h15l-1.3 11.1a1 1 0 0 1-1 .9H6.8a1 1 0 0 1-1-.9L4.5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+      <span class="kosik-odkaz__text">Košík</span>
+      <b class="kosik-pocet" data-kosik-pocet hidden>0</b>
     </a>
-    <button class="burger" type="button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span class="sr">Menu</span></button>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="mobmenu"><span></span><span></span><span class="sr">Menu</span></button>
+  </div>
+  <nav class="kategorie-lista" aria-label="Kategorie obchodu">
+    <div class="wrap kategorie-lista__in">
+      <a href="{{ url('obchod') }}" class="kategorie-lista__obchod"{% if cesta == 'obchod/' %} aria-current="page"{% endif %}>Obchod</a>
+      {% for k in data.kategorie %}<a href="{{ url('obchod/' ~ k.slug) }}"{% if cesta == 'obchod/' ~ k.slug ~ '/' %} aria-current="page"{% endif %}>{{ k.kratce or k.nazev }}</a>{% endfor %}
+    </div>
+  </nav>
+  <div class="mobmenu" id="mobmenu" hidden>
+    <form class="hledat hledat--mob" action="{{ url('obchod') }}" method="get" role="search">
+      <label class="sr" for="hledat-mob">Hledat v obchodě</label>
+      <input id="hledat-mob" name="q" type="search" placeholder="Hledat v obchodě…">
+    </form>
+    <p class="mobmenu__nadpis">Obchod</p>
+    <div class="mobmenu__kat">
+      <a href="{{ url('obchod') }}">Celý sortiment</a>
+      {% for k in data.kategorie %}<a href="{{ url('obchod/' ~ k.slug) }}">{{ k.nazev }}</a>{% endfor %}
+    </div>
+    <p class="mobmenu__nadpis">Safe Ocean</p>
+    <div class="mobmenu__hl">
+      {% for n in site.nav %}<a href="{{ url(n.href) }}">{{ n.text }}</a>{% endfor %}
+    </div>
+    <p class="mobmenu__kontakt"><a href="tel:{{ tel }}">{{ site.kontakt.telefon }}</a><br><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a></p>
   </div>
 </header>
 <main id="obsah">
 {% block obsah %}{% endblock %}
 </main>
-<footer class="paticka" data-noc>
-  <div class="paticka__in">
-    <div class="paticka__znacka">
-      <img src="{{ base }}img/logo-noc.svg" alt="Safe Ocean" width="52" height="80" loading="lazy">
-      <p class="paticka__claim">Akvária na míru.<br>Návrh, instalace a&nbsp;servis.</p>
+<footer class="paticka">
+  <div class="wrap">
+    <div class="paticka__horni">
+      <div class="paticka__znacka">
+        <a href="{{ url('') }}" class="znacka znacka--svetla"><img src="{{ base }}img/logo-noc.svg" alt="" width="30" height="46" loading="lazy"><span class="znacka__text">Safe Ocean</span></a>
+        <p>Mořská a&nbsp;sladkovodní akvária na míru. Návrh, instalace a&nbsp;servis pro domácnosti i&nbsp;firmy. Obchod pro akvaristy.</p>
+        <p class="paticka__kontakt"><a href="tel:{{ tel }}">{{ site.kontakt.telefon }}</a><br><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a><br>{{ site.kontakt.adresa.ulice }}<br>{{ site.kontakt.adresa.psc }} {{ site.kontakt.adresa.mesto }}</p>
+      </div>
+      <div>
+        <h2 class="paticka__h">Obchod</h2>
+        <ul>{% for k in data.kategorie %}<li><a href="{{ url('obchod/' ~ k.slug) }}">{{ k.nazev }}</a></li>{% endfor %}</ul>
+      </div>
+      <div>
+        <h2 class="paticka__h">Služby</h2>
+        <ul>
+          <li><a href="{{ url('akvaria-na-miru') }}">Akvária na míru</a></li>
+          <li><a href="{{ url('servis') }}">Servis akvárií</a></li>
+          <li><a href="{{ url('realizace') }}">Realizace</a></li>
+          <li><a href="{{ url('akvaria-na-miru') }}#architekti">Pro architekty</a></li>
+          <li><a href="{{ url('o-nas') }}">O nás</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="paticka__h">Nákup</h2>
+        <ul>
+          <li><a href="{{ url('doprava-a-platba') }}">Doprava a platba</a></li>
+          <li><a href="{{ url('doprava-a-platba') }}#zive">Živé zboží</a></li>
+          <li><a href="{{ url('obchodni-podminky') }}">Obchodní podmínky</a></li>
+          <li><a href="{{ url('kontakt') }}">Kontakt</a></li>
+          <li><a href="{{ url('zdroje-fotografii') }}">Zdroje fotografií</a></li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <h2 class="mini">Kontakt</h2>
-      <p><a href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a><br>
-      <a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a><br>
-      {{ site.kontakt.adresa.ulice }}<br>{{ site.kontakt.adresa.psc }} {{ site.kontakt.adresa.mesto }}</p>
-    </div>
-    <div>
-      <h2 class="mini">Web</h2>
-      <p><a href="{{ url('realizace') }}">Realizace</a><br><a href="{{ url('') }}#na-miru">Akvárium na míru</a><br><a href="{{ url('obchod') }}">Obchod</a><br><a href="{{ url('o-nas') }}">O nás</a><br><a href="{{ url('kontakt') }}">Kontakt</a></p>
-    </div>
-    <div>
-      <h2 class="mini">Provozovatel</h2>
-      <p>{{ site.provozovatel }}<br>IČO {{ site.ico }}<br><a href="{{ url('obchod') }}#podminky">Obchodní podmínky</a></p>
+    <div class="paticka__spodek">
+      <p>Provozovatel: {{ site.provozovatel }}, {{ site.provozovatel_adresa }}, IČO {{ site.ico }}</p>
+      <p>Návrh webu · sortiment a&nbsp;ceny obchodu jsou ilustrační</p>
     </div>
   </div>
-  <p class="paticka__spodek">© 2026 Safe Ocean · Návrh webu – ukázka, obsah obchodu je ilustrační</p>
 </footer>
+<div class="toast" data-toast role="status" aria-live="polite" hidden></div>
 <script src="{{ asset('js/main.js') }}" defer></script>
 {% block skripty %}{% endblock %}
 </body>

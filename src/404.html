@@ -1,11 +1,10 @@
 {% extends "_base.html" %}
 {% set titulek = "Stránka nenalezena | Safe Ocean" %}
 {% set noindex = True %}
-{% block telo %}stranka{% endblock %}
 {% block obsah %}
-<section class="podhlava podhlava--404">
-  <h1>Tady je jen voda</h1>
-  <p>Stránka, kterou hledáte, tu není. Zkuste úvod, realizace nebo obchod.</p>
-  <p><a class="tl tl--plne" href="{{ url('') }}">Na úvod</a> <a class="tl" href="{{ url('obchod') }}">Obchod</a></p>
-</section>
+<div class="wrap" style="padding-block:var(--sekce)">
+  <h1>Stránka nenalezena</h1>
+  <p class="perex" style="margin:1rem 0 2rem;max-width:46ch">{{ "Tahle stránka neexistuje nebo se přesunula. Zkuste obchod nebo úvodní stránku."|cz }}</p>
+  <div class="uvod__akce"><a class="tl tl--plne" href="{{ url('obchod') }}">Obchod</a><a class="tl" href="{{ url('') }}">Úvod</a></div>
+</div>
 {% endblock %}

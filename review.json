@@ -1,19 +1,18 @@
 {
-  "znamka": 7,
+  "znamka": 8,
   "slabiny": [
-    "Realizace na PC (buňka 4) ukazuje novou fotku „Kancelář co zaujme“ přes celou šířku, jenže QA hlásí, že img/r-kancelar-1-640.webp má 640 px a vykresluje se na 1320 px. Je tedy 2,06× zvětšená a na monitoru rozmazaná. Oprava: vygenerovat varianty 1280 a 1920 px z originálu v ~/safeocean/foto-raw (gphotos mají 2400 px, aqua 1199 px) a dát je do srcset. Když větší zdroj této fotky není, omezit šířku fotky na nejvýš 830 px (1,3×) a údaje dát vedle ní.",
-    "Úvod na mobilu (buňka 2): mezi posledním bodem „Servis – pravidelně, diskrétně“ a fotkou Václava Husy zůstává asi 120 px prázdného místa, takže se první obrazovky rozpadají. Oprava: mezeru zmenšit zhruba na 48 px, aby fotka navazovala hned pod body.",
-    "Patička na mobilu (buňka 18): pod větou „Ozveme se vám e-mailem nebo telefonem…“ je ještě velký prázdný tmavý pruh, než začne logo v patičce. Oprava: horní odsazení patičky zmenšit zhruba na polovinu, stejně jako se už zmenšily mezery mezi obchodem, FAQ a kontaktem."
+    "Řádek výhod pod úvodem (PC buňka 2: „Od návrhu po servis / Mořská i sladkovodní / Seženeme i vzácné druhy / Osobní odběr v Praze 3“, mobil buňka 2) má popisky v malém světle šedém písmu s nízkým kontrastem a na monitoru se skoro ztrácejí. Oprava: popisky zvětšit na 15–16 px a ztmavit na zhruba #4a4a5a, aby kontrast byl aspoň 4,5:1.",
+    "Karty produktů na mobilu (buňky 5–6: Klaun očkatý, Zoanthus, Kreveta čisticí, Bodlok královský…): odkaz s názvem má na výšku jen 20 px a QA hlásí 14 dotykových cílů pod 40 px. Oprava: proklik roztáhnout na celou kartu (fotka + název, např. přes ::after s position:absolute; inset:0) a tlačítko „+“ nechat nad ním přes z-index.",
+    "Postup realizace (PC buňka 6: Konzultace → Návrh → Výroba → Instalace a spuštění → Servis) má popisy kroků v drobném šedém písmu kolem 12 px a pět úzkých sloupců působí jako poznámka pod čarou. Oprava: popisy zvětšit na 14–15 px, ztmavit a na 1280 px dát kroky do 3 + 2 sloupců nebo je rozšířit, aby řádky nebyly tak krátké."
   ],
-  "zavazne": [
-    "Realizace PC (buňka 4): fotka „Kancelář co zaujme“ je zvětšená 2,06× (640 px vykreslených na 1320 px), QA ji vede jako chybu. Rafael výslovně chce fotky nejvýš 1,3×, proto je potřeba dodat větší zdroj nebo fotku zúžit."
-  ],
+  "zavazne": [],
   "silne": [
-    "Všechny tři minulé výtky jsou opravené obsahově. Kancelář je úvodní fotka přes celou šířku a název „Kancelář co zaujme“ s údaji „Mořské · 2 200 l · 2024“ je na jednom řádku pod ní. Další realizace jsou ve střídavých řádcích.",
-    "Obchod má nad mřížkou výraznou světlou pilulku „Ukázka obchodu – sortiment a ceny jsou ilustrační“. Ceny jsou ztlumené v malém monospace, takže je klient nevezme jako hotová čísla.",
-    "Kontakt už nic neslibuje („Ozveme se vám e-mailem nebo telefonem“) a mezery mezi obchodem, FAQ a formulářem na mobilu jsou znatelně menší.",
-    "Koncept z oboru drží celý web: světlý den přechází přes „Zhasnete. Akvárium svítí dál.“ do aktinické modré noci. Brand barvy, logo s mantami a Host Grotesk + Fragment Mono jsou klientovy, kalkulačka objemu a zátěže podlahy je užitečný vlastní prvek a fotky jsou reálné realizace firmy."
+    "Všechny výtky z minulého kola jsou opravené. „Kancelář co zaujme“ je teď na PC v mřížce realizací (buňka 7) v přiměřené velikosti a QA nehlásí žádnou chybu. Úvod na mobilu (buňka 1) navazuje fotkou hned pod tlačítky a patička na mobilu (buňky 16–17) začíná bez velkého prázdného pruhu.",
+    "Brand klienta drží: logo s mantami je vlevo v hlavičce, akční barva je aktinická modrá #351bf8 a sekce servisu stojí na tmavé brandové #070327, ne na vymyšleném luxusním tmavém vzhledu. Písmo Host Grotesk je ze starého webu klienta a háčky se kreslí správně.",
+    "Fotky jsou výhradně klientovy (realizace, Václav při servisu, produkty), ve stejné gradaci. Údaje u realizací (litry, rok, typ) přesně odpovídají briefu a nic není vymyšlené.",
+    "Spojení e-shopu (kategorie, vybrané produkty s cenami, košík, vyhledávání) a zakázkových akvárií je přehledné. CTA „Poptat akvárium“ a kontakt jsou vidět hned v hlavičce, a formulář s volbou „Co řešíte“ jasně rozděluje typy poptávek.",
+    "Na mobilu nic nepřetéká na šířkách 390 ani 360 px, pořadí obsahu dává smysl a sekce realizací a servisu fungují na šířku telefonu."
   ],
-  "verdikt": "opravit – minulé výtky jsou splněné a web je jinak na hraně odeslání. Brání tomu jen 2× zvětšená fotka Kanceláře, kterou přinesla poslední oprava. Po výměně za větší zdroj nebo po zúžení fotky je to 8/10.",
-  "_hash": "93b2c47349a58aeafcf0410630919bd70b7d35ba"
+  "verdikt": "Opravené kolo splnilo všechny tři výtky včetně závažné vady se zvětšenou fotkou. Web je čistý, drží brand Safe Ocean a nemá žádnou závažnou vadu, takže se dá poslat. Zbývají jen drobnosti v kontrastu a velikosti drobného textu a v dotykových cílech produktů.",
+  "_hash": "c303ed5be31f75324ebed3bb3e843d6421656130"
 }

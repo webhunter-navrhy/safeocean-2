@@ -1,40 +1,46 @@
-# Safe Ocean – koncept (31. 10. 2026)
+# Safe Ocean – koncept v2 (1. 11. 2026)
+
+Rafael k v1: „má hodně daleko od dobrého webu… žádný gimik den a noc… pořádný profesionální web… e-shop s produkty, které dávají smysl“.
+V1 (den → noc, mono popisky, tmavofialová druhá polovina) je zahozená celá.
 
 ## Tři koncepty
-1. **Den akvária** – web se se scrollem stmívá jako byt večer: nahoře denní světlo, dole aktinická modrá noc, kdy svítí už jen akvárium. Stejný přechod bílá → modrá má jeho logo.
-2. **Pohled sklem** – každá sekce jako čelní sklo nádrže s hladinou; scroll = ponor, hloubkoměr jako navigace.
-3. **Řez instalací** – web jako technický řez: nádrž, skříň, sump, technika za stěnou; kóty a litry.
+1. **Studio a obchod pod jednou střechou** – web se chová jako dobře vedená akvaristická prodejna se showroomem: vpředu realizace (výloha), vzadu regály (obchod), uprostřed člověk, který poradí. Klid, fotky, řád.
+2. **Katalog výrobce** – web jako katalog prémiové značky akvárií (Red Sea / ADA styl): produktové řady, technické listy, obchod jako doplněk.
+3. **Projektová kancelář** – akvárium jako architektonický prvek: realizace jako případové studie pro architekty, obchod schovaný.
 
-## Výběr: 1 – Den akvária
-- Je to přesně jeho brand (logo = přechod bílá → #351bf8, starý web tmavý) a zároveň to řeší „tmavý luxus“: web začíná světlý a čistý, do tmy se dostane postupně a tma je modrá z LED, ne černá se zlatou.
-- Máme na to skutečné fotky: realizace „Klid domova“ je nafocená ze stativu 3× (večer s lampami → soumrak → noc). Žádný filtr, žádná fikce.
-- Fotky klienta jsou převážně akvária v šeru – v noční části webu vyniknou.
-- E-shop (obchod, produkt, košík) je „den“: světlý, čitelný, produkt na prvním místě.
+## Výběr: 1 – Studio a obchod
+- Safe Ocean dělá obojí a obojí musí být vidět do 5 sekund: akvária na míru (velké zakázky) i obchod (opakované nákupy: krmiva, sůl, testy, živočichové).
+- Koncept 2 by potlačil realizace (jeho nejsilnější materiál), koncept 3 by potlačil obchod, který klient výslovně chce.
+- Žádný efekt: síla je ve fotkách klienta (85 profesionálních fotek realizací a servisu) a v tom, že obchod funguje jako opravdový (kategorie, filtr, detail s péčí o živočicha, košík, doprava podle obsahu).
 
 ## Skladba úvodní stránky
-1. Hero (ráno) – nadpis vlevo, velká fotka, dvě akce (poptávka / obchod), informační řádek.
-2. Proč Safe Ocean – jeho text, Vašek u akvária, servis.
-3. Realizace – 5 skutečných projektů s litry a rokem (redakční seznam, ne karty).
-4. **Signature 1: Od večera do noci** – sticky trojice fotek obýváku, prolínání podle scrollu (CSS view timeline), scroll neběží zastaveně.
-5. Mořské, nebo sladkovodní – dva světy vedle sebe.
-6. **Signature 2: Konfigurátor rozměru** – posuvníky šířka/výška/hloubka, typ, umístění → živý nákres nádrže s postavou 175 cm, objem v litrech a hmotnost vody (výpočet, ne marketing), předvyplní poptávku.
-7. Jak probíhá realizace – 5 kroků (skutečné pořadí), technika schovaná ve skříni / za stěnou.
-8. Z obchodu – 4 produkty.
-9. Časté otázky (jeho texty, FAQPage).
-10. Kontakt (noc) – formulář, telefon, adresa.
+1. Hlavička: horní lišta (osobní odběr Praha 3, telefon, e-mail) · logo vlevo · hlavní menu studia · hledání · košík · druhý řádek = kategorie obchodu (vždy po ruce).
+2. Úvod: nadpis „Akvária na míru“ + perex vlevo, akce vpravo, pod tím fotka realizace přes celou šířku; v rohu fotky karta obchodu.
+3. Pruh výhod (4 věcné body bez ikon-klipartů).
+4. Kategorie obchodu – fotodlaždice (živé = fotky, suché zboží = packshoty).
+5. Vybrané produkty – záložky Mořská / Sladkovodní / Technika a péče.
+6. Akvárium na míru – fotka + jeho text „Proč Safe Ocean“ + 4 pilíře + postup v 5 krocích.
+7. Realizace – 1 velká + 4 menší.
+8. Servis – fotka Václava při servisu + co servis obsahuje (jeho text).
+9. Pro architekty a designéry (jeho text z webu).
+10. Časté otázky · Kontakt s poptávkou.
 
-Podstránky: /realizace/ + 5 detailů, /obchod/ (filtr kategorií, řazení), /obchod/<produkt>/ (galerie, parametry, do košíku; živí živočichové jen osobní předání/rozvoz), /kosik/ (košík + pokladna, doprava podle obsahu, QR platba – ukázka), /o-nas/, /kontakt/.
+Podstránky: obchod (+ stránka každé kategorie), detail produktu (galerie, varianty, péče/parametry, doprava), košík + pokladna (doprava podle obsahu: živé a mražené jen osobně/rozvoz), akvária na míru (typy, umístění, kalkulačka objemu a zátěže, postup, poptávka), servis, realizace + 5 detailů, o nás, kontakt, doprava a platba, obchodní podmínky (doplní klient), zdroje fotografií.
+
+## Signature
+- Obchod, který opravdu funguje (filtr, řazení, hledání, košík, doprava podle obsahu, QR platba – ukázka).
+- Detail živočicha s kartou péče (velikost, akvárium od, teplota, náročnost, do útesu).
+Kalkulačka objemu zůstává jen na stránce Akvária na míru jako nástroj, ne jako efekt.
 
 ## Písmo, barvy, fotky
-- Host Grotesk 300/400/500 (brand, display i text), Fragment Mono jen pro údaje (litry, rok, parametry) – obojí z brandu, test háčků OK.
-- Paleta: den #F4F6FB / #E8EBF6, inkoust #0C0A2E, aktinická #351BF8 (akcent, odkazy na tmě #9C92FF), noc #070327. Žádná zlatá.
-- Fotky klienta, jednotně, bez filtrů; Lightroom 1199 px jen do menších rámů (≤ 1,3×).
+- Host Grotesk (písmo jeho starého webu, variabilní 300–800, háčky OK) – jediná rodina: nadpisy 500 s mírně záporným prostrkáním, text 400. Fragment Mono vypuštěn (působil technicky a drobně).
+- Paleta z loga: inkoust #0C0A2E, aktinická modrá #351BF8 (akce, odkazy), světle modrá #E9ECFF, plochy #F5F6F9, linky #E2E4EC, bílá. Patička inkoustová. Žádná zlatá, žádné přechody.
+- Rohy 4 px (tlačítka, karty), jemné linky. Fotky klienta bez filtrů; packshoty na bílé.
 
 ## Zakázané vzory
-- Číslování 1–5 jen v sekci Jak probíhá realizace – je to skutečné pořadí kroků.
-- Tmavá sekce: noc je koncept a brand (logo, starý web), ne „tmavé statistiky“; čísla jen doložené litry a roky.
-- Jinak žádný marquee, zrno, pilulková navigace, counters, kurzíva v nadpisech.
+- Číslování 1–5 jen u postupu realizace (skutečné pořadí).
+- Nic dalšího: žádný marquee, zrno, tmavé statistiky, pilulková navigace, kurzíva v nadpisech, scroll efekty.
 
 ## Porovnání
-- Poslední weby v registru: spotlight (kinosál, černá+zlatá), mkpure, sk-* – jiná skladba i písmo; Host Grotesk zatím nepoužit.
-- Odmítnuté: tmavá + zlatá (Zábranský), béžový editorial u e-shopu (Vizitkomat v1) – nepoužito; e-shop je chladně světlý a funkční.
+- Předchozí web v registru: spotlight (kino, černá + zlatá) – jiná skladba i písmo.
+- Odmítnuté: Vizitkomat v1 (béžový editorial u e-shopu) – tady chladná světlá paleta z brandu a e-shopová struktura; Pletánky v1 (moc efektů) – tady žádné.

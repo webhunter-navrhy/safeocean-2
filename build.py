@@ -148,8 +148,41 @@ def jsonld(site):
 def main():
     data = nacti_data()
     for p in data.get("produkty", []):
-        for k, v in (("od", False), ("jednotka", ""), ("latin", ""), ("podtitul", ""), ("varianty", None)):
+        for k, v in (("znacka", ""), ("latin", ""), ("podkat", ""), ("varianty", []), ("parametry", []), ("pece", []),
+                     ("foto", []), ("foto_typ", "packshot"), ("foto_autor", ""), ("foto_licence", ""), ("foto_zdroj", ""),
+                     ("ziva", False), ("mrazene", False), ("stitek", ""), ("kratky_popis", ""), ("popis", "")):
             p.setdefault(k, v)
+    for k in data.get("kategorie", []):
+        for kl, v in (("kratce", ""), ("foto", ""), ("foto_typ", "foto"), ("alt", "")):
+            k.setdefault(kl, v)
+    kat_podle = {k["slug"]: k for k in data.get("kategorie", [])}
+    for k in data.get("kategorie", []):
+        k["produkty"] = [p for p in data.get("produkty", []) if p["kat"] == k["slug"]]
+    for p in data.get("produkty", []):
+        if p["kat"] not in kat_podle:
+            raise BuildError(f"produkt {p['slug']}: neznámá kategorie {p['kat']}")
+        p["kategorie"] = kat_podle[p["kat"]]
+        p["varianty"].sort(key=lambda v: v["cena"])
+        p["_cena0"] = p["varianty"][0]["cena"] if p["varianty"] else p["cena"]
+    svety = {}
+    for k in data.get("kategorie", []):
+        svety.setdefault(k["svet"], []).append(k)
+    data["svety"] = list(svety.items())
+
+    def prolozit(kats, n=8):
+        """Výběr na úvod: kategorie se střídají v pořadí z dat."""
+        fronty = [list(kat_podle[k]["produkty"]) for k in kats if k in kat_podle]
+        out = []
+        while len(out) < n and any(fronty):
+            for f in fronty:
+                if f and len(out) < n:
+                    out.append(f.pop(0))
+        return out
+    data["vyber"] = {
+        "morska": prolozit(["morske-ryby", "koraly", "bezobratli"]),
+        "sladkovodni": prolozit(["sladkovodni-ryby", "rostliny"]),
+        "technika": prolozit(["akvaria-a-sety", "technika", "krmiva", "pece-o-vodu"]),
+    }
     site = data["site"]
     base = site.get("base", "/")
     if not base.startswith("/") or not base.endswith("/"):
@@ -216,7 +249,8 @@ def main():
 
     # generované detaily: realizace a produkty
     for sablona, polozky, slozka, klic in (("_realizace.html", data.get("realizace", []), "realizace", "r"),
-                                           ("_produkt.html", data.get("produkty", []), "obchod", "p")):
+                                           ("_produkt.html", data.get("produkty", []), "produkt", "p"),
+                                           ("_kategorie.html", data.get("kategorie", []), "obchod", "k")):
         if not os.path.exists(os.path.join(SRC, sablona)):
             continue
         tpl = env.get_template(sablona)

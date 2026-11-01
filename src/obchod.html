@@ -1,42 +1,15 @@
 {% extends "_base.html" %}
-{% set titulek = "Obchod – mořské ryby, korály a technika | Safe Ocean" %}
-{% set popis = "Mořské ryby, korály, sladkovodní ryby, technika a servis akvárií. Živé s osobním předáním v Praze." %}
+{% set titulek = "Obchod pro akvaristy – ryby, korály, rostliny, krmiva a technika | Safe Ocean" %}
+{% set popis = "Mořské a sladkovodní ryby, korály, bezobratlí, rostliny, krmiva, technika a péče o vodu. Osobní odběr v Praze 3, rozvoz po Praze." %}
 {% set cesta = "obchod/" %}
-{% block telo %}stranka obchod{% endblock %}
 {% block obsah %}
-<section class="podhlava podhlava--obchod">
-  <h1>Obchod</h1>
-  <p>Ryby, korály a&nbsp;technika, se kterými sami pracujeme. Živé předáváme osobně, aby cestu zvládly bez stresu.</p>
-  <p class="ukazka-pozn"><b>Ukázka obchodu.</b> Sortiment a&nbsp;ceny jsou ilustrační – doplníme je podle vašeho ceníku.</p>
-</section>
-
-<div class="obchod__lista">
-  <div class="filtr" role="group" aria-label="Kategorie">
-    <button type="button" class="filtr__tl" aria-pressed="true" data-filtr="">Vše <small>{{ data.produkty|length }}</small></button>
-    {% for k in data.kategorie %}
-    <button type="button" class="filtr__tl" aria-pressed="false" data-filtr="{{ k.slug }}">{{ k.nazev }} <small>{{ data.produkty|selectattr('kat', 'equalto', k.slug)|list|length }}</small></button>
-    {% endfor %}
-  </div>
-  <label class="razeni">Řadit <select data-razeni>
-    <option value="">doporučené</option><option value="cena-asc">od nejlevnějšího</option><option value="cena-desc">od nejdražšího</option>
-  </select></label>
+<div class="wrap">
+  <nav class="drobky" aria-label="Drobečková navigace"><a href="{{ url('') }}">Úvod</a><span aria-hidden="true">/</span><span>Obchod</span></nav>
+  <header class="podhlava">
+    <h1>Obchod</h1>
+    <p>{{ "Vše pro mořská i sladkovodní akvária. Živé zboží – ryby, korály, bezobratlé a rostliny – prodáváme s osobním odběrem v Praze 3 nebo rozvozem po Praze."|cz }}</p>
+  </header>
+  <p class="ukazka-pozn"><b>Návrh obchodu</b><span>{{ "Sortiment a ceny jsou ukázkové, podle běžných cen na českém trhu. Skutečnou nabídku doplní Safe Ocean."|cz }}</span></p>
+  {% with produkty = data.produkty, aktivni = "" %}{% include "_vypis.html" %}{% endwith %}
 </div>
-
-<div class="mrizka mrizka--obchod" data-produkty>
-  {% for p in data.produkty %}{% set loop_index = loop.index0 %}{% include "_produkt_karta.html" %}{% endfor %}
-</div>
-
-<section class="doprava" id="doprava">
-  <h2>Doprava a&nbsp;předání</h2>
-  <dl>
-    <div><dt>Živí živočichové a&nbsp;korály</dt><dd>Osobní odběr v&nbsp;Praze 3 nebo rozvoz po Praze v&nbsp;termoboxu. Poštou neposíláme.</dd></div>
-    <div><dt>Technika</dt><dd>Osobní odběr, rozvoz, nebo přepravní služba po celé ČR.</dd></div>
-    <div><dt>Akvária a&nbsp;servis</dt><dd>Na poptávku – přijedeme, zaměříme, pošleme nabídku.</dd></div>
-  </dl>
-</section>
-
-<section class="doprava" id="podminky">
-  <h2>Obchodní podmínky</h2>
-  <p>Prodávající: {{ site.provozovatel }}, IČO {{ site.ico }}. Úplné obchodní podmínky, reklamační řád a&nbsp;zásady ochrany osobních údajů doplníme před spuštěním obchodu.</p>
-</section>
 {% endblock %}

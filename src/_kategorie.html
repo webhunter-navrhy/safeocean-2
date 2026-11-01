@@ -1,0 +1,19 @@
+{% extends "_base.html" %}
+{% set titulek = k.nazev ~ " – obchod Safe Ocean" %}
+{% set popis = k.popis %}
+{% set cesta = "obchod/" ~ k.slug ~ "/" %}
+{% block obsah %}
+<div class="wrap">
+  <nav class="drobky" aria-label="Drobečková navigace"><a href="{{ url('') }}">Úvod</a><span aria-hidden="true">/</span><a href="{{ url('obchod') }}">Obchod</a><span aria-hidden="true">/</span><span>{{ k.nazev }}</span></nav>
+  <header class="podhlava">
+    <h1>{{ k.nazev }}</h1>
+    <p>{{ k.popis|cz }}</p>
+  </header>
+  {% if k.slug == "akvaria-a-sety" %}
+  <p class="ukazka-pozn"><b>Na míru</b><span>{{ "Hotový set nesedí do prostoru? Akvárium, skříň i techniku postavíme přesně podle vás."|cz }} <a href="{{ url('akvaria-na-miru') }}">Akvária na míru →</a></span></p>
+  {% elif k.svet != "Pro každé akvárium" %}
+  <p class="ukazka-pozn"><b>Živé zboží</b><span>{{ "Jen osobní odběr v Praze 3 nebo rozvoz po Praze. Ke každému živočichovi poradíme, jestli se hodí do vašeho akvária."|cz }} <a href="{{ url('doprava-a-platba') }}#zive">Jak prodáváme živé zboží →</a></span></p>
+  {% endif %}
+  {% with produkty = k.produkty, aktivni = k.slug %}{% include "_vypis.html" %}{% endwith %}
+</div>
+{% endblock %}
