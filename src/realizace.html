@@ -14,7 +14,7 @@
     <article class="r-polozka">
       <a class="r-polozka__foto" href="{{ url('realizace/' ~ r.slug) }}" tabindex="-1" aria-hidden="true">{{ img(r.fotky[0], alt=r.alt, sizes="(min-width: 900px) 56vw, 100vw") }}</a>
       <div>
-        <p class="udaje-radek"><span><b>{{ r.typ }}</b></span><span>{{ r.litru }}&nbsp;l</span><span>{{ r.prostor }}</span><span>{{ r.rok }}</span></p>
+        <p class="udaje-radek"><span><b>{{ r.typ }}</b></span><span>{{ r.litru|replace(" ", " ") }}&nbsp;l</span><span>{{ r.prostor }}</span><span>{{ r.rok }}</span></p>
         <h2><a href="{{ url('realizace/' ~ r.slug) }}">{{ r.nazev|cz }}</a></h2>
         <p>{{ r.perex|cz }}</p>
         <a class="sipka" href="{{ url('realizace/' ~ r.slug) }}">Detail realizace</a>

@@ -19,7 +19,7 @@
     <aside class="karta-udaje">
       <table class="parametry"><tbody>
         <tr><th scope="row">Typ</th><td>{{ r.typ }}</td></tr>
-        <tr><th scope="row">Objem</th><td>{{ r.litru }}&nbsp;l</td></tr>
+        <tr><th scope="row">Objem</th><td>{{ r.litru|replace(" ", " ") }}&nbsp;l</td></tr>
         <tr><th scope="row">Prostor</th><td>{{ r.prostor }}</td></tr>
         <tr><th scope="row">Rok</th><td>{{ r.rok }}</td></tr>
       </tbody></table>

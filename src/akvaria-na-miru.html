@@ -148,7 +148,7 @@
       {% for r in data.realizace[:3] %}
       <a class="real" href="{{ url('realizace/' ~ r.slug) }}">
         <span class="real__foto">{{ img(r.fotky[0], alt=r.alt, sizes="(min-width: 760px) 30vw, 50vw") }}</span>
-        <span class="real__popis"><b>{{ r.nazev|cz }}</b><span>{{ r.litru }}&nbsp;l · {{ r.rok }}</span></span>
+        <span class="real__popis"><b>{{ r.nazev|cz }}</b><span>{{ r.litru|replace(" ", " ") }}&nbsp;l · {{ r.rok }}</span></span>
       </a>
       {% endfor %}
     </div>

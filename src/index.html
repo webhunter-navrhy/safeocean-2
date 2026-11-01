@@ -144,7 +144,7 @@
       {% for slug in poradi %}{% set prvni = loop.first %}{% for r in data.realizace if r.slug == slug %}
       <a class="real{% if prvni %} real--velka{% endif %}" href="{{ url('realizace/' ~ r.slug) }}">
         <span class="real__foto">{{ img(r.fotky[0], alt=r.alt, sizes=("(min-width: 900px) 42vw, 100vw" if prvni else "(min-width: 900px) 28vw, (min-width: 520px) 50vw, 100vw")) }}</span>
-        <span class="real__popis"><b>{{ r.nazev|cz }}</b><span>{{ r.typ }} · {{ r.litru|replace(" ", "&nbsp;") }}&nbsp;l · {{ r.rok }}</span></span>
+        <span class="real__popis"><b>{{ r.nazev|cz }}</b><span>{{ r.typ }} · {{ r.litru|replace(" ", " ") }}&nbsp;l · {{ r.rok }}</span></span>
       </a>
       {% endfor %}{% endfor %}
     </div>
